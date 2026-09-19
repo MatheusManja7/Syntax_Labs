@@ -272,9 +272,7 @@
     border: 1px solid #dddddd;
     border-radius: 6px;
     background: #ffffff;
-    color: var(--preto);
     font-family: var(--font-code);
-    font-size: 10px;
 }
 
 .funnel_step:nth-child(1) {
@@ -289,7 +287,6 @@
     width: 45%;
     border-color: var(--color-logo);
     background: rgba(137, 242, 0, 0.12);
-    color: var(--color-logo-escura);
 }
 
 .dashboard_window {
