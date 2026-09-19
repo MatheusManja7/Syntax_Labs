@@ -1,0 +1,17 @@
+/* Variaveis de Cores e Fontes  */
+:root {
+    /* Variaveis Colors  */
+    --preto: #0D0D0D;
+    --cinza: #343434; 
+    --cinza-text-button: #282828; 
+    --branco: #F5F5F5;
+    --cinza-text: #858585;
+    --cinza-claro: #EAEAEA;
+    --color-logo: #89F200;
+    --color-logo-escura: #2A4300;
+
+    /* Variaveis Fonts */
+    --font-titulo: 'Unbounded', sans-serif;
+    --font-corpo: 'Plus Jakarta Sans', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+}

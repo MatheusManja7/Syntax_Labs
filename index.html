@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style/root.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_menu_rod.css">
+    <link rel="stylesheet" href="style/style_home.css">
+    <link rel="stylesheet" href="style/style_about.css">
+    <link rel="stylesheet" href="style/style_solutions.css">
+    <link rel="stylesheet" href="style/style_process.css">
+    <link rel="stylesheet" href="style/style_why_us.css">
+    <link rel="stylesheet" href="style/style_faq.css">
+    <link rel="stylesheet" href="style/style_budget.css">
+    <link rel="stylesheet" href="style/style_content.css">
+    <title>Syntax Labs</title>
+</head>
+<body>
+    <!-- Menu  -->
+    <header class="navbar" id="navbar">
+        <a href="#home" class="logo">
+            <img src="assets/logo_name_sf.png" alt="">
+        </a>
+
+        <nav class="menu" id="menu">
+            <a href="#about">sobre</a>
+            <a href="#solutions">soluções</a>
+            <a href="#process">como trabalhamos</a>
+            <a href="#why_us">por que nós</a>
+            <a href="#faq">FAQ</a>
+            <a href="#content">fale conosco</a>
+        </nav>
+
+        <div class="navbar_actions" id="navbar_actions">
+            <a href="#login" class="profile_icon" id="profile_icon" aria-label="Perfil / Login">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"></path>
+                </svg>
+            </a>
+
+            <a href="#budget" class="btn" id="budget_btn">solicitar orçamento</a>
+
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="menu_overlay" id="menu_overlay"></div>
+    </header>
+
+    <!-- Efeito de fundo Geral -->
+    <div id="background"></div>
+
+    <!-- Section Inicial  -->
+    <section class="home" id="home">
+        <div class="box_info_home">
+            <div class="box_left">
+                <div class="box_texts">
+                    <span class="mono_mark">{ Tecnologia exclusiva }</span>
+                    <h1>
+                        Transformamos
+                        Ideias em <span>código que funciona</span>.
+                    </h1>
+                    <p id="p_home">
+                        A Syntax Labs projeta e constrói sites, sistemas e produtos
+                        digitais para empresas que querem escalar sem complicar a
+                        operação.
+                    </p>
+                </div>
+
+                <div class="box_btns">
+                    <a href="/forms_budget.html" class="btns" id="btns1">solicitar orçamento</a>
+                    <a href="#solutions" class="btns" id="btns2">ver soluções</a>
+                </div>
+            </div>
+
+            <div class="box_right">
+                <img src="assets/logo_sf.png" alt="">
+            </div>
+        </div>
+
+        <!-- Icon de Scroll para section de baixo  -->
+        <a href="#about" class="scroll_down" aria-label="Rolar para baixo">
+            <span class="scroll_down_mouse">
+                <span class="scroll_down_dot"></span>
+            </span>
+        </a>
+    </section>
+
+    <!-- Section - Sobre  -->
+    <section class="about" id="about">
+        <!-- Efeito de Fundo  -->
+        <div class="bg_effect"></div>
+
+        <div class="box_info_about">
+            <div class="left_box">
+                <div class="about_visual">
+                    <div class="about_glow"></div>
+
+                    <div class="code_window">
+                        <div class="code_topbar">
+                            <div class="window_dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <span class="window_title">
+                                project.syntax
+                            </span>
+                        </div>
+
+                        <div class="code_content">
+                            <div class="code_line line_small">
+                                <span class="code_keyword">const</span>
+                                <span class="code_text"> solution =</span>
+                            </div>
+
+                            <div class="code_line line_large">
+                                <span class="code_text">create</span>
+                                <span class="code_function">();</span>
+                            </div>
+
+                            <div class="code_line line_medium"></div>
+                            <div class="code_line line_large"></div>
+
+                            <div class="code_line line_small">
+                                <span class="code_keyword">return</span>
+                                <span class="code_text"> result;</span>
+                            </div>
+
+                            <div class="code_cards">
+                                <div class="mini_code_card active">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <div class="mini_code_card">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating_element element_code">
+                        <span>&lt;/&gt;</span>
+                    </div>
+                    <div class="floating_element element_database">
+                        <span>DB</span>
+                    </div>
+                    <div class="floating_element element_api">
+                        <span>API</span>
+                    </div>
+
+                    <div class="connection connection_1"></div>
+                    <div class="connection connection_2"></div>
+                    <div class="connection connection_3"></div>
+                </div>
+            </div>
+
+            <div class="right_box">
+                <span class="mono_mark">{ Sobre nós }</span>
+
+                <h2>
+                    Menos burocracia, mais
+                    <span>código</span>
+                    que resolve.
+                </h2>
+                <p>
+                    A Syntax Labs nasceu para resolver um problema comum:
+                    empresas que precisam de tecnologia boa, mas ficam
+                    presas entre agências lentas e freelancers sem estrutura.
+
+                    Montamos times enxutos por projeto, focados em entender
+                    o negócio antes de abrir o editor de código. O resultado
+                    é software que resolve o problema certo — não só o que
+                    foi pedido no briefing.
+                </p>
+
+                <div class="line"></div>
+
+                <div class="box_dados">
+                    <div class="dados">
+                        <span class="dado_num">+50</span>
+                        <span class="dado_label">
+                            Projetos entregues
+                        </span>
+                    </div>
+
+                    <div class="dados">
+                        <span class="dado_num">5+</span>
+                        <span class="dado_label">
+                            Anos de mercado
+                        </span>
+                    </div>
+
+                    <div class="dados">
+                        <span class="dado_num">100%</span>
+                        <span class="dado_label">
+                            Times focados no negócio
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions" id="solutions">
+        <!-- Efeito de Fundo  -->
+        <div class="bg_effect"></div>
+
+        <div class="box_info_solutions">
+            <div class="solutions_header">
+                <span class="mono_mark">{ Nossas soluções }</span>
+                <h2>
+                    Um time,
+                    <span>várias</span>
+                    formas de resolver.
+                </h2>
+                <p class="solutions_tagline">
+                    Da ideia ao código em produção — sem enrolação, sem intermediário.
+                </p>
+            </div>
+
+            <!-- Carrossel  -->
+            <div class="carousel_box">
+                <div class="carousel">
+                    <button class="carousel_arrow prev" aria-label="Anterior">
+                        ‹
+                    </button>
+
+                    <div class="carousel_viewport">
+                        <div class="carousel_track" id="carousel_track">
+                            <div class="carousel_slide">
+                                <div class="slide_text">
+                                    <span class="mono_mark">
+                                        { frontend + seo }
+                                    </span>
+                                    <h3>Sites Institucionais</h3>
+                                    <p>
+                                        Criamos sites rápidos, responsivos e
+                                        otimizados para SEO, pensados para
+                                        transmitir credibilidade desde o primeiro
+                                        acesso. Cada página é construída com foco
+                                        em performance e conversão, transformando
+                                        visitantes em clientes.
+                                    </p>
+                                </div>
+
+                                <div class="slide_illustration">
+                                    <div class="solution_visual">
+                                        <div class="ui_window">
+                                            <div class="ui_topbar">
+                                                <span class="ui_dot active"></span>
+                                                <span class="ui_dot"></span>
+                                                <span class="ui_dot"></span>
+                                            </div>
+
+                                            <div class="ui_content">
+                                                <div class="ui_line green large"></div>
+                                                <div class="ui_line medium"></div>
+                                                <div class="ui_line small"></div>
+
+                                                <div class="ui_cards">
+                                                    <div class="ui_card highlight"></div>
+                                                    <div class="ui_card"></div>
+                                                    <div class="ui_card"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel_slide">
+                                <div class="slide_text">
+                                    <span class="mono_mark">
+                                        { conversão }
+                                    </span>
+                                    <h3>Landing Pages</h3>
+                                    <p>
+                                        Páginas construídas com um único objetivo:
+                                        converter. Trabalhamos copywriting,
+                                        estrutura visual e chamadas para ação
+                                        alinhadas ao seu funil de vendas, seja para
+                                        captar leads, vender um produto ou divulgar
+                                        um lançamento.
+                                    </p>
+                                </div>
+
+                                <div class="slide_illustration">
+                                    <div class="solution_visual">
+                                        <div class="ui_window">
+                                            <div class="ui_topbar">
+                                                <span class="ui_dot active"></span>
+                                                <span class="ui_dot"></span>
+                                                <span class="ui_dot"></span>
+                                            </div>
+
+                                            <div class="ui_content">
+                                                <div class="ui_line green large"></div>
+                                                <div class="ui_line medium"></div>
+
+                                                <div class="funnel">
+                                                    <div class="funnel_step">
+                                                        <span>VISITANTES</span>
+                                                    </div>
+                                                    <div class="funnel_step">
+                                                        <span>LEADS</span>
+                                                    </div>
+                                                    <div class="funnel_step">
+                                                        <span>CONVERSÃO</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel_slide">
+                                <div class="slide_text">
+                                    <span class="mono_mark">
+                                        { backend + dashboards }
+                                    </span>
+                                    <h3>Sistemas Web</h3>
+                                    <p>
+                                        Desenvolvemos ferramentas sob medida para
+                                        automatizar processos internos, centralizar
+                                        dados e dar visibilidade sobre a operação.
+                                        Do painel administrativo ao relatório em
+                                        tempo real, o sistema se adapta ao seu fluxo
+                                        de trabalho.
+                                    </p>
+                                </div>
+
+                                <div class="slide_illustration">
+                                    <div class="solution_visual">
+                                        <div class="ui_window dashboard_window">
+                                            <div class="ui_topbar">
+                                                <span class="ui_dot active"></span>
+                                                <span class="ui_dot"></span>
+                                                <span class="ui_dot"></span>
+                                            </div>
+
+                                            <div class="ui_content">
+                                                <div class="ui_line medium"></div>
+
+                                                <div class="dashboard_grid">
+                                                    <div class="dashboard_card">
+                                                        <span class="number">
+                                                            1.248
+                                                        </span>
+                                                        <span class="label">
+                                                            Usuários
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="dashboard_card">
+                                                        <span class="number">
+                                                            +32%
+                                                        </span>
+                                                        <span class="label">
+                                                            Crescimento
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="chart">
+                                                    <div class="chart_bar" style="height: 35%;"></div>
+                                                    <div class="chart_bar" style="height: 55%;"></div>
+                                                    <div class="chart_bar green" style="height: 85%;"></div>
+                                                    <div class="chart_bar" style="height: 65%;"></div>
+                                                    <div class="chart_bar green" style="height: 100%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel_slide">
+                                <div class="slide_text">
+                                    <span class="mono_mark">
+                                        { mobile }
+                                    </span>
+                                    <h3>Aplicativos</h3>
+                                    <p>
+                                        Levamos seu produto para o bolso do cliente
+                                        com apps mobile e híbridos, do primeiro
+                                        protótipo até a publicação nas lojas.
+                                        Cuidamos da experiência de uso, performance
+                                        e integração com os sistemas que sua empresa
+                                        já utiliza.
+                                    </p>
+                                </div>
+
+                                <div class="slide_illustration">
+                                    <div class="solution_visual">
+                                        <div class="phone">
+                                            <div class="phone_notch"></div>
+
+                                            <div class="phone_screen">
+                                                <div class="ui_line green large"></div>
+                                                <div class="ui_line medium"></div>
+
+                                                <div class="phone_cards">
+                                                    <div class="phone_card highlight">
+                                                        <div class="phone_icon">
+                                                            ●
+                                                        </div>
+
+                                                        <div class="phone_card_lines">
+                                                            <div class="phone_line large"></div>
+                                                            <div class="phone_line small"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="phone_card">
+                                                        <div class="phone_icon">
+                                                            +
+                                                        </div>
+
+                                                        <div class="phone_card_lines">
+                                                            <div class="phone_line medium"></div>
+                                                            <div class="phone_line small"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="phone_navigation">
+                                                    <span></span>
+                                                    <span class="active"></span>
+                                                    <span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel_slide">
+                                <div class="slide_text">
+                                    <span class="mono_mark">
+                                        { produto + assinatura }
+                                    </span>
+                                    <h3>SaaS</h3>
+                                    <p>
+                                        Construímos produtos digitais escaláveis
+                                        com autenticação, planos e cobrança
+                                        recorrente já integrados. Ideal para empresas
+                                        que querem transformar um serviço em um
+                                        produto que cresce com pouca fricção
+                                        operacional.
+                                    </p>
+                                </div>
+
+                                <div class="slide_illustration">
+                                    <div class="solution_visual">
+                                        <div class="ui_window saas_window">
+                                            <div class="ui_topbar">
+                                                <span class="ui_dot active"></span>
+                                                <span class="ui_dot"></span>
+                                                <span class="ui_dot"></span>
+                                            </div>
+
+                                            <div class="ui_content">
+                                                <div class="saas_plan_top">
+                                                    <span class="saas_badge">PLANO PRO</span>
+                                                    <div class="saas_toggle">
+                                                        <span class="saas_toggle_dot"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="saas_price">
+                                                    <span class="saas_price_value">R$ 97</span>
+                                                    <span class="saas_price_period">/mês</span>
+                                                </div>
+
+                                                <div class="saas_features">
+                                                    <div class="saas_feature">
+                                                        <span class="saas_check">✓</span>
+                                                        <span class="ui_line medium"></span>
+                                                    </div>
+                                                    <div class="saas_feature">
+                                                        <span class="saas_check">✓</span>
+                                                        <span class="ui_line small"></span>
+                                                    </div>
+                                                    <div class="saas_feature">
+                                                        <span class="saas_check">✓</span>
+                                                        <span class="ui_line large"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="saas_cta">
+                                                    Assinar agora
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel_arrow next" aria-label="Próximo">
+                        ›
+                    </button>
+                </div>
+
+                <div class="carousel_dots" id="carousel_dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Como trabalhamos -->
+    <section class="process" id="process">
+        <div class="box_info_process">
+            <div class="process_header">
+                <span class="mono_mark">{ Como trabalhamos }</span>
+                <h2>
+                    Do problema à solução,
+                    <span>sem complicação.</span>
+                </h2>
+                <p>
+                    Um processo simples, estratégico e transparente para transformar
+                    necessidades reais em produtos digitais que funcionam.
+                </p>
+            </div>
+
+            <div class="process_steps">
+                <div class="process_step">
+                    <div class="step_number">
+                        <span>01</span>
+                    </div>
+                    <div class="step_content">
+                        <h3>Entendemos o problema</h3>
+                        <p>
+                            Começamos conhecendo sua empresa, seus objetivos e os
+                            desafios que precisam ser resolvidos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process_step">
+                    <div class="step_number">
+                        <span>02</span>
+                    </div>
+                    <div class="step_content">
+                        <h3>Planejamos a solução</h3>
+                        <p>
+                            Transformamos necessidades em estratégia, definindo
+                            funcionalidades e o melhor caminho para o projeto.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process_step">
+                    <div class="step_number">
+                        <span>03</span>
+                    </div>
+                    <div class="step_content">
+                        <h3>Projetamos e desenvolvemos</h3>
+                        <p>
+                            Criamos a experiência visual e transformamos o planejamento
+                            em código com foco em desempenho e usabilidade.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process_step">
+                    <div class="step_number">
+                        <span>04</span>
+                    </div>
+                    <div class="step_content">
+                        <h3>Testamos e refinamos</h3>
+                        <p>
+                            Validamos funcionalidades, corrigimos detalhes e refinamos
+                            a experiência para garantir a qualidade da solução.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process_step">
+                    <div class="step_number">
+                        <span>05</span>
+                    </div>
+                    <div class="step_content">
+                        <h3>Colocamos no ar</h3>
+                        <p>
+                            Realizamos a entrega e publicação do projeto, deixando sua
+                            solução pronta para funcionar e crescer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Por que escolher nossa empresa -->
+    <section class="why_us" id="why_us">
+        <div class="box_info_why_us">
+            <div class="why_header">
+                <span class="mono_mark">{ Por que nós }</span>
+                <h2>
+                    O parceiro certo
+                    <span>para escalar</span>
+                    sua tecnologia.
+                </h2>
+                <p>
+                    Não somos só mais uma agência. Somos o time técnico
+                    que sua empresa contrataria internamente, se tivesse tempo
+                    pra isso.
+                </p>
+            </div>
+
+            <div class="why_cards">
+                <div class="why_card">
+                    <span class="why_card_num">01</span>
+                    <h3>Comunicação direta</h3>
+                    <p>Você fala com quem escreve o código, sem intermediários.</p>
+                </div>
+
+                <div class="why_card">
+                    <span class="why_card_num">02</span>
+                    <h3>Times enxutos</h3>
+                    <p>Só quem o projeto realmente precisa, nada de estrutura inchada.</p>
+                </div>
+
+                <div class="why_card">
+                    <span class="why_card_num">03</span>
+                    <h3>Código sob medida</h3>
+                    <p>Sem templates genéricos. Cada solução nasce do seu problema.</p>
+                </div>
+
+                <div class="why_card">
+                    <span class="why_card_num">04</span>
+                    <h3>Compromisso com resultado</h3>
+                    <p>Prazo, escopo e qualidade combinados — e cumpridos.</p>
+                </div>
+
+                <div class="why_card">
+                    <span class="why_card_num">05</span>
+                    <h3>Transparência no processo</h3>
+                    <p>Você acompanha cada etapa, sem caixas-pretas no meio do caminho.</p>
+                </div>
+
+                <div class="why_card">
+                    <span class="why_card_num">06</span>
+                    <h3>Suporte contínuo</h3>
+                    <p>Ficamos disponíveis depois da entrega, não só até o lançamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Perguntas frequentes -->
+    <section class="faq" id="faq">
+        <div class="box_info_faq">
+            <div class="faq_header">
+                <span class="mono_mark">{ Perguntas frequentes }</span>
+                <h2>
+                    Ainda com <span>dúvidas</span>?
+                    A gente responde.
+                </h2>
+                <p>
+                    Tudo o que você precisa saber antes de começar
+                    seu projeto com a gente.
+                </p>
+            </div>
+
+            <div class="faq_list">
+                <details class="faq_item">
+                    <summary class="faq_question">
+                        Quanto tempo leva pra entregar um projeto?
+                        <span class="faq_icon"></span>
+                    </summary>
+                    <div class="faq_answer">
+                        <p>
+                            Depende do escopo, mas a maioria dos sites institucionais
+                            e landing pages fica pronta entre 2 e 4 semanas. Sistemas
+                            e produtos mais complexos têm prazo definido junto com
+                            você logo no início do projeto.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq_item">
+                    <summary class="faq_question">
+                        Como funciona o orçamento?
+                        <span class="faq_icon"></span>
+                    </summary>
+                    <div class="faq_answer">
+                        <p>
+                            Entendemos seu problema em uma conversa inicial, definimos
+                            escopo e enviamos uma proposta fechada — sem surpresas no
+                            meio do caminho. Você sabe exatamente o que está pagando
+                            antes de começarmos.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq_item">
+                    <summary class="faq_question">
+                        Vocês dão suporte depois da entrega?
+                        <span class="faq_icon"></span>
+                    </summary>
+                    <div class="faq_answer">
+                        <p>
+                            Sim. Todo projeto sai com um período de suporte incluso
+                            para ajustes e correções, e também oferecemos planos de
+                            manutenção contínua para quem quer evoluir o produto
+                            depois do lançamento.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq_item">
+                    <summary class="faq_question">
+                        Quais tecnologias vocês usam?
+                        <span class="faq_icon"></span>
+                    </summary>
+                    <div class="faq_answer">
+                        <p>
+                            Escolhemos a stack de acordo com o projeto — de sites
+                            estáticos otimizados até sistemas com backend robusto e
+                            banco de dados. O foco é sempre performance, escalabilidade
+                            e facilidade de manutenção.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq_item">
+                    <summary class="faq_question">
+                        Preciso ter tudo definido antes de falar com vocês?
+                        <span class="faq_icon"></span>
+                    </summary>
+                    <div class="faq_answer">
+                        <p>
+                            Não. Grande parte dos nossos clientes chega só com o
+                            problema em mente. A gente ajuda a estruturar a solução,
+                            definir prioridades e transformar isso em um projeto
+                            viável.
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="budget" id="budget">
+        <div class="box_info_budget">
+            <div class="budget__content">
+                <span class="budget__mark">{ orçamento }</span>
+                <h2 class="budget__title">Curioso pra saber onde seu projeto pode chegar?</h2>
+                <p class="budget__text">
+                    Envie sua ideia e receba um orçamento honesto — escopo, prazo e
+                    investimento — em até 48 horas. Sem call de vendas, sem enrolação.
+                    Se fizer sentido, a gente conversa.
+                </p>
+            </div>
+
+            <div class="budget__action">
+                <div class="btn-container">
+                    <div class="btn-drawer transition-top">resposta em</div>
+                    <div class="btn-drawer transition-bottom">até 48 horas</div>
+
+                    <a href="/forms_budget.html" class="btn" id="btn-budget">
+                        <span class="btn-text">Solicitar orçamento</span>
+                    </a>    
+
+                    <!-- Linhas Decorativas ao redor do btn  -->
+                    <svg class="btn-corner" xmlns="http://www.w3.org/2000/svg" viewBox="-1 1 32 32">
+                        <path d="M32,32C14.355,32,0,17.645,0,0h.985c0,17.102,13.913,31.015,31.015,31.015v.985Z"
+                            fill="var(--color-logo)"></path>
+                    </svg>
+                    <svg class="btn-corner" xmlns="http://www.w3.org/2000/svg" viewBox="-1 1 32 32">
+                        <path d="M32,32C14.355,32,0,17.645,0,0h.985c0,17.102,13.913,31.015,31.015,31.015v.985Z"
+                            fill="var(--color-logo)"></path>
+                    </svg>
+                    <svg class="btn-corner" xmlns="http://www.w3.org/2000/svg" viewBox="-1 1 32 32">
+                        <path d="M32,32C14.355,32,0,17.645,0,0h.985c0,17.102,13.913,31.015,31.015,31.015v.985Z"
+                            fill="var(--color-logo)"></path>
+                    </svg>
+                    <svg class="btn-corner" xmlns="http://www.w3.org/2000/svg" viewBox="-1 1 32 32">
+                        <path d="M32,32C14.355,32,0,17.645,0,0h.985c0,17.102,13.913,31.015,31.015,31.015v.985Z"
+                            fill="var(--color-logo)"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Formulário / Contato -->
+    <section class="content" id="content">
+        <!-- Efeito de Fundo  -->
+        <div class="bg_effect"></div>
+        <div class="box_info_content">
+            <div class="box_infos">
+                <div class="div_contacts contact_header">
+                    <span class="mono_mark">{ Fale com a gente }</span>
+                    <h2>
+                        Entre em contato
+                        <span>com a nossa</span>
+                        equipe.
+                    </h2>
+                </div>
+
+                <div class="contacts_list">
+                    <a href="mailto:contato@syntaxlabs.com.br" class="contact_item">
+                        <div class="contact_text">
+                            <span class="mono_mark">EMAIL</span>
+                            <p>contato@syntaxlabs.com.br</p>
+                        </div>
+                    </a>
+                    <a href="tel:+5567999990000" class="contact_item">
+                        <div class="contact_text">
+                            <span class="mono_mark">TELEFONE</span>
+                            <p>(67) 99999-0000</p>
+                        </div>
+                    </a>
+                    <div class="contact_item">
+                        <div class="contact_text">
+                            <span class="mono_mark">LOCALIZAÇÃO</span>
+                            <p>Três Lagoas, MS — atendimento remoto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box_form">
+                <form action="" method="POST">
+                    <div class="form_row">
+                        <div class="form_group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                        </div>
+
+                        <div class="form_group">
+                            <label for="empresa">Empresa:</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa">
+                        </div>
+                    </div>
+
+                    <div class="form_row">
+                        <div class="form_group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required>
+                        </div>
+
+                        <div class="form_group">
+                            <label for="telefone">Telefone:</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+
+                    <div class="form_row">
+                        <div class="form_group form_group_full">
+                            <label for="assunto">Assunto:</label>
+                            <input type="text" id="assunto" name="assunto" placeholder="Qual o motivo do contato?"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <button class="btn_content" type="submit">
+                        Enviar mensagem
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer" id="footer">
+        <!-- Efeito de Fundo  -->
+        <div class="bg_effect"></div>
+
+        <div class="box_footer">
+            <div class="footer_top">
+                <div class="footer_brand">
+                    <a href="#home" class="footer_logo">
+                        <img src="assets/logo_name_sf.png" alt="Syntax Labs">
+                    </a>
+                    <p>
+                        Times enxutos, código sob medida. Projetamos e construímos
+                        produtos digitais para empresas que querem escalar sem
+                        complicar a operação.
+                    </p>
+
+                    <!-- Icones Redes Sociais  -->
+                    <div class="footer_social">
+                        <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21h-4V9Z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17.5" cy="6.5" r="1" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="GitHub" target="_blank" rel="noopener">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.35 4.7-4.58 4.94.36.31.68.92.68 1.85v2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navegação  -->
+                <div class="footer_col">
+                    <span class="mono_mark">{ navegação }</span>
+                    <nav class="footer_nav">
+                        <a href="#home">Início</a>
+                        <a href="#about">Sobre</a>
+                        <a href="#solutions">Soluções</a>
+                        <a href="#process">Como Trabalhamos</a>
+                        <a href="#why_us">Por que nós</a>
+                        <a href="#faq">FAQ</a>
+                    </nav>
+                </div>
+
+                <!-- Soluções da Empresa  -->
+                <div class="footer_col">
+                    <span class="mono_mark">{ soluções }</span>
+                    <nav class="footer_nav">
+                        <p>Sites Institucionais</p>
+                        <p>Landing Pages</p>
+                        <p>Sistemas Web</p>
+                        <p>Aplicativos</p>
+                        <p>SaaS</p>
+                    </nav>
+                </div>
+
+                <!-- Contatos -->
+                <div class="footer_col footer_contact">
+                    <span class="mono_mark">{ contato }</span>
+                    <ul class="footer_contact_list">
+                        <li>
+                            <span class="footer_contact_label">Email</span>
+                            <a href="mailto:contato@syntaxlabs.com.br">contato@syntaxlabs.com.br</a>
+                        </li>
+                        <li>
+                            <span class="footer_contact_label">Telefone</span>
+                            <a href="tel:+5567999990000">(67) 99999-0000</a>
+                        </li>
+                        <li>
+                            <span class="footer_contact_label">Localização</span>
+                            <span>Três Lagoas, MS — atendimento remoto</span>
+                        </li>
+                    </ul>
+                    <!-- btn solicitar orçamento  -->
+                    <a href="/forms_budget.html" class="footer_cta">Solicitar orçamento</a>
+                </div>
+            </div>
+
+            <!-- Line cinza  -->
+            <div class="footer_divider"></div>
+
+            <div class="footer_bottom">
+                <p>© 2026 Syntax Labs. Todos os direitos reservados.</p>
+                <div class="footer_legal_links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JS  -->
+    <!-- Script Vanta - Efeito de fundo geral  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
+    <!-- Scripts js funcionalidades  -->
+    <script src="js/script_menu.js"></script>
+    <script src="js/script_fundo.js"></script>
+    <script src="js/script_carrossel.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+Date : 2026-09-17 10:12:50
+Directory : c:\Users\mathe\Documents\Projeto_Syntax_ Labs
+Total : 10 files,  1210 codes, 51 comments, 218 blanks, all 1479 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| HTML       |          2 |        554 |         17 |         73 |        644 |
+| PostCSS    |          5 |        415 |         21 |         87 |        523 |
+| JavaScript |          3 |        241 |         13 |         58 |        312 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                        | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                           |         10 |      1,210 |         51 |        218 |      1,479 |
+| . (Files)                                                                   |          2 |        554 |         17 |         73 |        644 |
+| js                                                                          |          3 |        241 |         13 |         58 |        312 |
+| style                                                                       |          5 |        415 |         21 |         87 |        523 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                    | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\forms-budget.html             | HTML       |        554 |         17 |         72 |        643 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\index.html                    | HTML       |          0 |          0 |          1 |          1 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\js\js_pills_forms_budget.js   | JavaScript |        241 |         13 |         60 |        314 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\js\script_carrossel.js        | JavaScript |          0 |          0 |         -1 |         -1 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\js\script_fundo.js            | JavaScript |          0 |          0 |         -1 |         -1 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-about.css         | PostCSS    |         20 |          1 |          2 |         23 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-budget.css        | PostCSS    |         -7 |          0 |         -1 |         -8 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-content.css       | PostCSS    |          1 |          0 |          0 |          1 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-forms-budgets.css | PostCSS    |        394 |         20 |         85 |        499 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-menu-rod.css      | PostCSS    |          7 |          0 |          1 |          8 |
+| Total                                                                       |            |      1,210 |         51 |        218 |      1,479 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+

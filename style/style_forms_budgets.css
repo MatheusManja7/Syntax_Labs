@@ -1,0 +1,642 @@
+/* Style da Pagina: Solicitar Orçamento  */
+/* Section Orçamento  */
+.orcamento {
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: clamp(120px, 14vh, 168px) 24px 120px;
+    overflow: hidden;
+    background-color: var(--preto);
+}
+
+.box_info_orcamento {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+/* ---------- Coluna esquerda ---------- */
+.orcamento_left {
+    flex: 0 0 30%;
+    max-width: 340px;
+    position: sticky;
+    top: clamp(120px, 14vh, 168px);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.orcamento_left .mono_mark {
+    margin-bottom: 4px;
+}
+
+.orcamento_left h1 {
+    margin: 0;
+}
+
+.orcamento_left h1 span {
+    color: var(--color-logo);
+}
+
+.orcamento_left p {
+    color: var(--cinza-text);
+    max-width: 42ch;
+}
+
+.orcamento_tips {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 6px;
+}
+
+.tips_title {
+    font-family: var(--font-corpo);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--branco);
+}
+
+.orcamento_tips ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.orcamento_tips li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--cinza-text);
+}
+
+.tip_dot {
+    flex: 0 0 6px;
+    width: 6px;
+    height: 6px;
+    margin-top: 7px;
+    border-radius: 50%;
+    background: var(--color-logo);
+}
+
+.orcamento_dados {
+    display: flex;
+    gap: 32px;
+}
+
+.orcamento_dados .dado_num {
+    font-size: 1.25rem;
+}
+
+/* ---------- Coluna direita: formulário ---------- */
+.orcamento_right {
+    flex: 1;
+    min-width: 0;
+}
+
+.form_orcamento {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding: 44px clamp(24px, 4vw, 48px);
+    border: 1px solid rgba(245, 245, 245, 0.1);
+    border-radius: 24px;
+    background: rgba(245, 245, 245, 0.02);
+    backdrop-filter: blur(6px);
+}
+
+.form_step {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form_step + .form_step {
+    padding-top: 32px;
+    border-top: 1px solid rgba(245, 245, 245, 0.08);
+}
+
+.step_head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.step_head h3 {
+    margin: 0;
+}
+
+.step_head_text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.step_head_sub {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--cinza-text);
+}
+
+.form_step .step_number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+}
+
+/* ---------- Opções de escolhas (seleção única ou múltipla) ---------- */
+.pill_group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.pill {
+    appearance: none;
+    cursor: pointer;
+    border: 1px solid rgba(245, 245, 245, 0.16);
+    background: transparent;
+    color: var(--cinza-text);
+    font-family: var(--font-corpo);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 999px;
+    transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.pill:hover {
+    border-color: rgba(137, 242, 0, 0.5);
+    color: var(--branco);
+}
+
+.pill.active {
+    background: var(--color-logo);
+    border-color: var(--color-logo);
+    color: var(--cinza-text-button);
+}
+
+/* ---------- Campos de texto (reaproveita .form_row/.form_group do contato) ---------- */
+.form_orcamento .opt {
+    color: var(--cinza-text);
+    font-weight: 400;
+    text-transform: none;
+}
+
+.btn_orcamento_submit {
+    width: 100%;
+    text-align: center;
+}
+
+.form_footer_note {
+    margin-top: -16px;
+    font-size: 0.8rem;
+    color: var(--cinza-text);
+    text-align: center;
+}
+
+/* ---------- Indicador de campo obrigatório ---------- */
+.required {
+    color: var(--color-logo);
+    font-weight: 600;
+}
+
+.field_hint {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--cinza-text);
+    margin-top: -6px;
+}
+
+/* ---------- Campos de texto: cor, placeholder e estilo consistente ---------- */
+textarea {
+    resize: none;
+}
+
+.form_orcamento input:not([type="file"]),
+.form_orcamento select,
+.form_orcamento textarea {
+    color: var(--preto);
+}
+
+.form_orcamento input::placeholder,
+.form_orcamento textarea::placeholder {
+    color: rgba(13, 13, 13, 0.45);
+}
+
+.form_orcamento textarea {
+    width: 100%;
+    padding: 12px 14px;
+    color: var(--preto);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.form_orcamento textarea:focus {
+    outline: none;
+    border-color: var(--color-logo);
+}
+
+/* ---------- Select nativo estilizado ---------- */
+.form_group select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: var(--font-corpo);
+    font-size: 0.9rem;
+    border-radius: 10px;
+    padding: 12px 40px 12px 14px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2389F200' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    transition: border-color .2s ease;
+}
+
+.form_group select option {
+    color: var(--preto);
+}
+
+.form_group select:focus {
+    outline: none;
+    border-color: var(--color-logo);
+}
+
+.form_group select:invalid {
+    color: var(--preto);
+}
+
+.form_group input[type="date"] {
+    color-scheme: var(--preto);
+}
+
+/* ---------- Blocos condicionais (aparecem conforme resposta) ---------- */
+.conditional_field,
+.other_field {
+    animation: reveal_field .25s ease;
+}
+
+.other_field {
+    margin-top: -6px;
+}
+
+.other_field input {
+    width: 100%;
+}
+
+@keyframes reveal_field {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Sub-bloco: "Se sim, quais materiais você possui?" etc. ---------- */
+.nested_block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 18px 4px;
+    border-left: 2px solid rgba(137, 242, 0, 0.35);
+    background: rgba(245, 245, 245, 0.015);
+    border-radius: 0 10px 10px 0;
+}
+
+.nested_block > label,
+.nested_block > .field_label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--branco);
+}
+
+/* ---------- Checklist dinâmica de funcionalidades ---------- */
+#funcionalidades_container {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.func_subgroup {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.func_subgroup_title {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    letter-spacing: .02em;
+    color: var(--color-logo);
+}
+
+/* ---------- Estado de erro em grupos de pills obrigatórios ---------- */
+.pill_group_error .pill {
+    border-color: rgba(255, 92, 92, 0.55);
+}
+
+.field_error {
+    display: none;
+    font-size: 0.8rem;
+    color: #ff8a8a;
+    margin-top: -6px;
+}
+
+.field_error.is_visible {
+    display: block;
+}
+
+/* ---------- Upload de anexos ---------- */
+.file_drop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 28px 20px;
+    border: 1px dashed rgba(245, 245, 245, 0.22);
+    border-radius: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.file_drop:hover {
+    border-color: rgba(137, 242, 0, 0.5);
+    background: rgba(137, 242, 0, 0.03);
+}
+
+.file_drop input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file_drop_label {
+    font-size: 0.9rem;
+    color: var(--branco);
+}
+
+.file_drop_hint {
+    font-size: 0.78rem;
+    color: var(--cinza-text);
+}
+
+.file_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.file_chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    color: var(--branco);
+    background: rgba(245, 245, 245, 0.05);
+    border: 1px solid rgba(245, 245, 245, 0.12);
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.file_chip button {
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--cinza-text);
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 0;
+}
+
+/* Responsividade da tela  */
+@media (max-width: 1024px) {
+    .box_info_orcamento {
+        flex-direction: column;
+        gap: 48px;
+    }
+    .orcamento_left {
+        position: static;
+        max-width: 100%;
+        flex: 1 1 auto;
+    }
+    .orcamento_left p {
+        max-width: 60ch;
+    }
+}
+
+@media (max-width: 900px) {
+    .orcamento_left .mono_mark {
+        font-size: 12px;
+    }
+    .orcamento_left h1 {
+        font-size: clamp(2.00rem, 4.5vw, 3.25rem);
+    }
+    .orcamento_left h1 span {
+        font-size: clamp(2.00rem, 4.5vw, 3.25rem);
+    }
+    .orcamento_left p {
+        font-size: 12px;
+    }
+    .tips_title {
+        font-size: 0.8rem;
+    }
+    .orcamento_tips li {
+        font-size: 0.8rem;
+    }
+    .orcamento_dados .dado_num {
+        font-size: 1.35rem;
+    }
+    .step_head h3 {
+        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    }
+    .step_head_sub {
+        font-size: 0.78rem;
+    }
+    .pill {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .orcamento {
+        padding: clamp(110px, 20vh, 140px) 16px 80px;
+    }
+    .form_orcamento {
+        padding: 32px 20px;
+        border-radius: 18px;
+    }
+    .form_row {
+        flex-direction: column;
+    }
+    .pill {
+        font-size: 0.78rem;
+        padding: 9px 16px;
+    }
+    .orcamento_dados {
+        gap: 24px;
+    }
+    .nested_block {
+        padding: 14px 14px 2px;
+    }
+    .field_hint,
+    .form_footer_note {
+        font-size: 0.75rem;
+    }
+    .file_drop_label {
+        font-size: 0.85rem;
+    }
+    .file_drop_hint {
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 560px) {
+  .budget {
+    padding: 48px 20px;
+  }
+  .box_info_budget {
+    padding: 40px 24px;
+  }
+  .btn {
+    min-width: 100%;
+  }
+
+  /* Reduz o botão e as linhas decorativas proporcionalmente */
+  .btn-container {
+    --corner-dist: 12px;
+  }
+  .btn-corner {
+    width: 18px;
+  }
+  #btn-budget {
+    min-width: 140px;
+  }
+  .btn {
+    padding: 0.5em 1em;
+  }
+  .btn-drawer {
+    font-size: 0.55rem;
+    padding: 0.12em 0.5em;
+  }
+}
+
+@media (max-width: 420px) {
+  .budget__content .budget__title {
+    font-size: clamp(1.325rem, 3vw, 2.25rem);
+  }
+  .budget__content .budget__mark {
+    font-size: 12px;
+  }
+  .budget__content .budget__text {
+    font-size: 0.80rem;
+  }
+  .btn-text {
+    font-size: .9rem;
+  }
+
+  /* Ajuste adicional para telas bem pequenas */
+  .btn-container {
+    --corner-dist: 9px;
+  }
+  .btn-corner {
+    width: 14px;
+  }
+  #btn-budget {
+    min-width: 120px;
+    padding: 0.45em 0.9em;
+  }
+  .btn-drawer {
+    font-size: 0.5rem;
+    padding: 0.1em 0.45em;
+  }
+}
+
+@media (max-width: 420px) {
+    .orcamento_left h1 {
+        font-size: clamp(1.80rem, 4.5vw, 3.25rem);
+    }
+    .orcamento_left h1 span {
+        font-size: clamp(1.80rem, 4.5vw, 3.25rem);
+    }
+    .orcamento_left p {
+        font-size: 0.80rem;
+    }
+    .tips_title {
+        font-size: 0.78rem;
+    }
+    .orcamento_tips li {
+        font-size: 0.78rem;
+    }
+    .step_head h3 {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+    .step_head_sub {
+        font-size: 0.75rem;
+    }
+    .pill {
+        font-size: 0.75rem;
+        padding: 8px 14px;
+    }
+    .form_group label {
+        font-size: 0.55rem;
+    }
+    .form_orcamento textarea {
+        font-size: 0.9rem;
+    }
+    .field_hint,
+    .form_footer_note {
+        font-size: 0.72rem;
+    }
+      .budget__content .budget__title {
+        font-size: clamp(1.325rem, 3vw, 2.25rem);
+    }
+    .budget__content .budget__mark {
+        font-size: 12px;
+    }
+    .budget__content .budget__text {
+        font-size: 0.80rem;
+    }
+    .btn-text {
+        font-size: .9rem;
+    }
+
+    /* Ajuste adicional para telas bem pequenas */
+    .btn-container {
+        --corner-dist: 9px;
+    }
+    .btn-corner {
+        width: 14px;
+    }
+    #btn-budget {
+        min-width: 120px;
+        padding: 0.45em 0.9em;
+    }
+    .btn-drawer {
+        font-size: 0.5rem;
+        padding: 0.1em 0.45em;
+    }
+}

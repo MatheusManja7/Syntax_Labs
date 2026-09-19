@@ -1,0 +1,126 @@
+/* Section why_us - Por que escolher a empresa */
+.why_us {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Caixa geral de informações da Section  */
+.box_info_why_us { 
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.why_header {
+    width: 100%;
+}
+
+.why_header h2 {
+    margin-top: 8px;
+}
+
+.why_header h2 span {
+    color: var(--color-logo);
+}
+
+.why_header p {
+    margin-top: 25px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Grid de cards */
+.why_cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* Cards  */
+.why_card {
+    position: relative;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #1c1c1c;
+    border: 1px solid var(--cinza);
+    border-radius: 14px;
+    transition: 0.25s ease;
+}
+
+.why_card:hover {
+    border-color: var(--color-logo);
+    background-color: #202020;
+    transform: translateY(-4px);
+}
+
+.why_card_num {
+    font-family: var(--font-titulo);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-logo);
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.why_card h3 {
+    font-size: 1.05rem;
+}
+
+.why_card p {
+    color: var(--branco);
+    opacity: 0.65;
+}
+
+/* Responsividade da Section  */
+@media (max-width: 900px) {
+    .why_us {
+        height: auto;
+        padding: 80px 30px;
+    }
+    .box_info_why_us {
+        width: 100%;
+    }
+    .why_cards {
+        grid-template-columns: 1fr 1fr;
+    }
+    .why_header h2 { font-size: clamp(1.425rem, 3vw, 2.25rem); }
+    .why_header .mono_mark { font-size: 12px; }
+}
+
+@media (max-width: 600px) {
+    .why_us {
+        padding: 70px 20px;
+    }
+    .why_cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 420px) {
+    .why_card .why_card_num {
+        font-size: 1.1rem;
+    }
+    .why_header h2 {
+        font-size: clamp(1.325rem, 3vw, 2.25rem);
+    }
+    .why_header .mono_mark {
+        font-size: 12px;
+    }
+    .why_header p {
+        font-size: 0.80rem;
+    }
+    .why_header h3 {
+        font-size: 0.90rem;
+    }
+    .why_header p {
+        font-size: 0.80rem;
+    }
+}

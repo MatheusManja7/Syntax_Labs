@@ -1,0 +1,47 @@
+Date : 2026-09-17 10:12:50
+Directory : c:\Users\mathe\Documents\Projeto_Syntax_ Labs
+Total : 18 files,  4471 codes, 114 comments, 709 blanks, all 5294 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| PostCSS    |         12 |      2,765 |         69 |        450 |      3,284 |
+| HTML       |          2 |      1,394 |         27 |        183 |      1,604 |
+| JavaScript |          4 |        312 |         18 |         76 |        406 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                        | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                           |         18 |      4,471 |        114 |        709 |      5,294 |
+| . (Files)                                                                   |          2 |      1,394 |         27 |        183 |      1,604 |
+| js                                                                          |          4 |        312 |         18 |         76 |        406 |
+| style                                                                       |         12 |      2,765 |         69 |        450 |      3,284 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                    | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\forms-budget.html             | HTML       |        554 |         17 |         72 |        643 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\index.html                    | HTML       |        840 |         10 |        111 |        961 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\js\js_pills_forms_budget.js   | JavaScript |        241 |         13 |         60 |        314 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\js\script_carrossel.js        | JavaScript |         37 |          2 |         10 |         49 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\js\script_fundo.js            | JavaScript |         24 |          2 |          4 |         30 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\js\script_menu.js             | JavaScript |         10 |          1 |          2 |         13 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\root.css                | PostCSS    |         13 |          3 |          2 |         18 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-about.css         | PostCSS    |        371 |          2 |         53 |        426 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-budget.css        | PostCSS    |        339 |          9 |         57 |        405 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-content.css       | PostCSS    |        206 |          7 |         34 |        247 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-faq.css           | PostCSS    |        114 |          2 |         19 |        135 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-forms-budgets.css | PostCSS    |        394 |         20 |         85 |        499 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-home.css          | PostCSS    |        181 |          5 |         23 |        209 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-menu-rod.css      | PostCSS    |        297 |         10 |         49 |        356 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-process.css       | PostCSS    |        107 |          1 |         16 |        124 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-solutions.css     | PostCSS    |        561 |          1 |         85 |        647 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style-why_us.css        | PostCSS    |         84 |          2 |         13 |         99 |
+| c:\Users\mathe\Documents\Projeto_Syntax_ Labs\style\style.css               | PostCSS    |         98 |          7 |         14 |        119 |
+| Total                                                                       |            |      4,471 |        114 |        709 |      5,294 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+

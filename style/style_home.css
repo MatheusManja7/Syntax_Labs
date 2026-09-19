@@ -1,0 +1,276 @@
+/* Section Home - Pagina inicial  */
+.home {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Caixa geral que contem as informações da section  */
+.box_info_home {
+    width: 100%;
+    max-width: 1240px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 0 60px;
+}
+
+/* ----- Lado Esquerdo ----- */
+.box_left {
+    width: 50%;
+    height: 100%;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 30px;
+}
+
+.box_texts {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mono_mark {
+    width: 100%;
+    max-width: 620px;
+    color: var(--color-logo);
+    font-family: var(--font-code);
+    font-size: 14px;
+}
+
+.box_left h1 {
+    width: 100%;
+    max-width: 620px;
+    font-family: var(--font-titulo);
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.box_left h1 span {
+    color: var(--color-logo);
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+}
+
+.box_left #p_home {
+    width: 100%;
+    max-width: 620px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.box_btns {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.box_btns .btns {
+    padding: 12px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease-in;
+}
+
+
+/* Primeiro Botão — igual ao do formulário */
+.box_btns #btns1 {
+    background: var(--color-logo);
+    color: var(--cinza-text-button);
+    border: none;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.box_btns #btns1:hover {
+    color: var(--preto);
+}
+
+.box_btns #btns1::after {
+    content: "";
+    background: var(--branco);
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+.box_btns #btns1:hover::after {
+    transform: skewX(-45deg) scale(1, 1);
+}
+
+/* Segundo Botão */
+.box_btns #btns2 {
+    background: transparent;
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    font-weight: 700;
+}
+
+.box_btns #btns2:hover {
+    color: var(--color-logo-escura);
+    background-color: var(--branco);
+    border-color: var(--color-logo);
+}
+
+/* ----- Lado Direito ----- */
+.home .box_right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box_right img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 35px rgba(137, 242, 0, 0.4));
+    animation: float_logo 6s ease-in-out infinite;
+}
+
+@keyframes float_logo {
+    0%, 100% {
+        transform: translateY(0px);
+        filter: drop-shadow(0 0 25px rgba(137, 242, 0, 0.3));
+    }
+    50% {
+        transform: translateY(-16px);
+        filter: drop-shadow(0 0 45px rgba(137, 242, 0, 0.55));
+    }
+}
+
+.scroll_down {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--branco);
+    opacity: 0.6;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.scroll_down:hover {
+    opacity: 1;
+    color: var(--color-logo);
+}
+
+/* Sinalizador de mais sections em baixo */
+.scroll_down_mouse {
+    position: relative;
+    width: 26px;
+    height: 42px;
+    border: 2px solid var(--branco);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Bolinha que desce dentro do sinalizador, como a rodinha de scroll */
+.scroll_down_dot {
+    width: 4px;
+    height: 12px;
+    margin-top: 6px;
+    border-radius: 2px;
+    background-color: var(--color-logo);
+    animation: scroll_dot 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll_dot {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(14px);
+        opacity: 0;
+    }
+}
+
+/* Responsividade da Section  */
+@media (max-width: 900px) {
+    .box_info_home {
+        padding: 0 30px;
+    }
+    .home_content {
+        flex-direction: column;
+        padding: 0 24px;
+        gap: 24px;
+    }
+    .box_left,
+    .home .box_right {
+        width: 100%;
+    }
+    .scroll_down {
+        bottom: 20px;
+    }
+    .box_btns .btns {
+        white-space: nowrap;
+        font-size: 10px;
+    }
+    .mono_mark {
+        font-size: 12px;
+    }
+    .box_left h1 {
+        font-size: clamp(2.00rem, 4.5vw, 3.25rem);
+    }
+    .box_left h1 span {
+        font-size: clamp(2.00rem, 4.5vw, 3.25rem);
+    }
+    .box_left #p_home {
+        font-size: 12px;
+    }
+    .home .box_right {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .box_btns {
+        align-items: baseline;
+    }
+    .box_left h1 {
+        font-size: clamp(1.80rem, 4.5vw, 3.25rem);
+    }
+    .box_left h1 span {
+        font-size: clamp(1.80rem, 4.5vw, 3.25rem);
+    }
+    .box_left #p_home {
+        font-size: 0.80rem;
+    }
+    .scroll_down_mouse {
+        width: 20px;
+        height: 36px;
+    }
+    .scroll_down_dot {
+        width: 2.5px;
+        height: 10px;
+    }
+}

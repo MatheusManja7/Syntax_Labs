@@ -1,0 +1,105 @@
+/* Style Geral  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-corpo);
+    color: var(--branco);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Definições Gerais de texts */
+h1, h2, h3, h4 {
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    color: var(--branco);
+}
+
+h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    line-height: 1.15;
+}
+
+h2 {
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+    line-height: 1.35;
+}
+
+h4 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+p {
+    font-family: var(--font-corpo);
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--branco);
+}
+
+/* Seções */
+section {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    background-color: transparent;
+}
+
+/* Efeito de fundo Geral */
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+}
+
+/* Efeito de Fundo de Sections */
+.bg_effect {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(560px circle at 80% 45%, rgba(137, 242, 0, .10), transparent 65%),
+        radial-gradient(420px circle at 14% 20%, rgba(137, 242, 0, .05), transparent 60%);
+}
+
+.bg_effect::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(245, 245, 245, .045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 245, 245, .045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
+}

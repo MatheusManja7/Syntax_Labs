@@ -1,0 +1,514 @@
+/* Menu e Rodapé  */
+
+/* ----- Menu ----- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 6%;
+    z-index: 1000;
+
+    background-color: transparent;
+    transition: background-color 0.35s ease,
+                backdrop-filter 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+/* Estado ao rolar a página (classe adicionada via JS) */
+.navbar.scrolled {
+    background-color: var(--preto);
+    backdrop-filter: blur(20px);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    filter: drop-shadow(0 0 0px rgba(137, 242, 0, 0));
+}
+
+.navbar .logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 14px rgba(137, 242, 0, 0.55));
+}
+
+.navbar .logo img {
+    height: clamp(60px, 9vw, 130px);
+    width: auto;
+    display: block;
+}
+
+.navbar .menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 2.2vw, 40px);
+    min-width: 0;
+}
+
+.menu a {
+    position: relative;
+    color: var(--branco);
+    text-decoration: none;
+    font-size: clamp(12px, 0.95vw, 15px);
+    letter-spacing: 0.2px;
+    padding: 6px 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--color-logo);
+    transition: width 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--color-logo);
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.navbar .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(8px, 0.9vw, 12px) clamp(14px, 1.6vw, 22px);
+    background: var(--color-logo);
+    color: var(--cinza-text-button);
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(11px, 0.85vw, 14px);
+    font-weight: bold;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.navbar .btn:hover {
+    color: var(--preto);
+}
+
+.navbar .btn::after {
+    content: "";
+    background: var(--branco);
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+.navbar .btn:hover::after {
+    transform: skewX(-45deg) scale(1, 1);
+}
+
+/* Ações do navbar (perfil, btn, hambúrguer) */
+.navbar_actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1vw, 18px);
+    flex-shrink: 0;
+}
+
+/* Ícone de perfil */
+.profile_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(34px, 3vw, 40px);
+    height: clamp(34px, 3vw, 40px);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--branco);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.profile_icon:hover {
+    color: var(--color-logo);
+    border-color: var(--color-logo);
+    transform: translateY(-2px);
+}
+
+/* Hambúrguer */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--branco);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Overlay */
+.menu_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    z-index: 999;
+}
+
+.menu_overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.menu .profile_icon {
+    margin-bottom: 6px;
+    width: 40px;
+    height: 40px;
+}
+
+.menu .btn {
+    margin-top: 10px;
+    width: fit-content;
+    padding: 12px 22px;
+    font-size: 14px;
+}
+
+
+/* ----- Rodapé ----- */
+.footer {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--preto);
+    padding: 90px 6% 30px;
+}
+
+/* Efeito de fundo: bg_effect */
+.footer .bg_effect {
+    background:
+        radial-gradient(560px circle at 80% 45%, rgba(137, 242, 0, .05), transparent 65%),
+        radial-gradient(420px circle at 14% 20%, rgba(137, 242, 0, .05), transparent 60%);
+}
+
+.footer .bg_effect::before {
+    background-image:
+        linear-gradient(to right, rgba(245, 245, 245, 0) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 245, 245, 0) 1px, transparent 1px);
+}
+
+.box_footer {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Topo: marca + colunas */
+.footer_top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 60px;
+}
+
+.footer_brand .footer_logo img {
+    height: 90px;
+    width: auto;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.footer_brand p {
+    color: var(--branco);
+    opacity: 0.65;
+    font-family: var(--font-corpo);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 320px;
+    margin-bottom: 24px;
+}
+
+.footer_social {
+    display: flex;
+    gap: 14px;
+}
+
+.footer_social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--branco);
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.footer_social a:hover {
+    color: var(--color-logo);
+    border-color: var(--color-logo);
+    transform: translateY(-3px);
+}
+
+/* Colunas de links */
+.footer_col .mono_mark {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.footer_nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer_nav a {
+    color: var(--branco);
+    opacity: 0.7;
+    text-decoration: none;
+    font-family: var(--font-corpo);
+    font-size: 14px;
+    width: fit-content;
+    transition: opacity 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer_nav a:hover {
+    opacity: 1;
+    color: var(--color-logo);
+    padding-left: 4px;
+}
+
+.footer_nav p {
+    color: var(--branco);
+    opacity: 0.7;
+    text-decoration: none;
+    font-family: var(--font-corpo);
+    font-size: 14px;
+    width: fit-content;
+}
+
+/* Contatos */
+.footer_contact_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.footer_contact_label {
+    display: block;
+    font-family: var(--font-code);
+    font-size: 11px;
+    color: var(--color-logo);
+    margin-bottom: 3px;
+}
+
+.footer_contact_list a,
+.footer_contact_list span:not(.footer_contact_label) {
+    color: var(--branco);
+    opacity: 0.75;
+    text-decoration: none;
+    font-family: var(--font-corpo);
+    font-size: 14px;
+}
+
+.footer_contact_list a:hover {
+    opacity: 1;
+    color: var(--color-logo);
+}
+
+.footer_cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 22px;
+    background: transparent;
+    color: var(--branco);
+    text-decoration: none;
+    border: 1px solid var(--color-logo);
+    border-radius: 10px;
+    font-family: var(--font-corpo);
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.footer_cta:hover {
+    background: var(--color-logo);
+    color: var(--cinza-text-button);
+    transform: translateY(-2px);
+}
+
+/* Divisor */
+.footer_divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 60px 0 24px;
+}
+
+.footer_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer_bottom p {
+    color: var(--branco);
+    opacity: 0.45;
+    font-family: var(--font-code);
+    font-size: 12px;
+    letter-spacing: .02em;
+}
+
+.footer_legal_links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer_legal_links a {
+    color: var(--branco);
+    opacity: 0.5;
+    text-decoration: none;
+    font-family: var(--font-corpo);
+    font-size: 13px;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.footer_legal_links a:hover {
+    opacity: 1;
+    color: var(--color-logo);
+}
+
+/* ----- Responsividade ----- */
+/* Responsividade */
+
+@media (min-width: 900px) and (max-width: 1100px) {
+    .navbar {
+        padding: 0 1%;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .footer_top {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 44px;
+    }
+    .footer_brand {
+        grid-column: 1 / -1;
+    }
+
+    .navbar {
+        padding: 0 4%;
+        justify-content: space-between;
+    }
+
+    .navbar .logo img {
+        height: 60px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar .menu {
+        position: fixed;
+        top: 0;
+        left: auto;
+        right: -100%;
+        flex: none;
+        height: 100vh;
+        width: min(78%, 320px);
+        background-color: var(--preto);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 26px;
+        padding: 100px 40px;
+        z-index: 1050;
+        transition: right 0.4s ease;
+        box-shadow: -12px 0 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .navbar .menu.active {
+        right: 0;
+    }
+
+    .menu a {
+        font-size: 17px;
+        white-space: normal;
+    }
+
+    .navbar .logo img {
+        height: clamp(90px, 9vw, 130px);
+        width: auto;
+        display: block;
+    }
+}
+
+@media (max-width: 560px) {
+    .footer_top {
+        grid-template-columns: 1fr;
+    }
+    .footer_bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar .menu {
+        width: 100%;
+    }
+}
