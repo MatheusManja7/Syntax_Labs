@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style/root.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/style_menu_rod.css">
+    <title>Loguin</title>
+</head>
+<body>
+    <!-- Menu  -->
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <img src="assets/logo_name_sf.png" alt="">
+        </a>
+
+        <div class="navbar_actions" id="navbar_actions">
+            <a href="index.html" class="btn" id="budget_btn">voltar</a>
+        </div>
+    </header>
+
+    <!-- Efeito de fundo Geral -->
+    <div id="background"></div>
+
+    <section class="section_login">
+        <!-- Caixa que contem as informações da section  -->
+        <div class="box_info_login">
+            <!-- Form  -->
+            <form action="" class="form_main">
+                <span class="form_blob" aria-hidden="true"></span>
+                <p class="heading">Login</p>
+                <div class="inputContainer">
+                    <svg class="inputIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
+                    </svg>
+                <input type="text" class="inputField" id="username" placeholder="email">
+                </div>
+                
+            <div class="inputContainer">
+                <svg class="inputIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+                </svg>
+                <input type="password" class="inputField" id="password" placeholder="Senha">
+            </div>
+                        
+            <!-- Btn  -->
+            <button id="button">Entrar</button>
+                <a class="forgotLink" href="rec_senha.html">Esqueceu sua senha?</a>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Scripts JS  -->
+    <!-- Script Vanta - Efeito de fundo geral  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>  
+    <script src="js/script_fundo.js"></script>  
+    <script src="js/script_menu.js"></script>  
+</body>
+</html>

@@ -1,0 +1,445 @@
+.section_nova_senha {
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  height: auto;
+  padding: 110px 24px 60px;
+  background-color: transparent;
+}
+
+.navbar {
+  justify-content: space-between;
+}
+
+.box_info_nova_senha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: auto;
+  background-color: transparent;
+}
+
+/* Form */
+.form_main {
+  width: 420px;
+  max-width: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding: 48px 40px;
+  border-radius: 16px;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Luz verde girando ao redor da borda */
+.form_main::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: conic-gradient(transparent 0deg,
+      transparent 300deg,
+      var(--color-logo) 340deg,
+      transparent 360deg);
+  animation: rotate_border 6s linear infinite;
+  z-index: -2;
+}
+
+.form_main::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--cinza-text-button);
+  border-radius: 15px;
+  z-index: -1;
+}
+
+@keyframes rotate_border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Decoração */
+.form_blob {
+  position: absolute;
+  bottom: -38px;
+  right: -14px;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.form_blob::before {
+  content: "{ }";
+  display: block;
+  font-family: var(--font-code);
+  font-size: 8rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--branco);
+  opacity: 0.05;
+  white-space: nowrap;
+}
+
+.form_blob::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 22px;
+  height: 22px;
+  border-top: 2px solid var(--color-logo);
+  border-left: 2px solid var(--color-logo);
+  opacity: 0.4;
+}
+
+.heading {
+  font-family: var(--font-titulo);
+  font-size: 2rem;
+  color: var(--branco);
+  font-weight: 600;
+  margin: 5px 0 10px 0;
+  z-index: 2;
+  text-align: center;
+}
+
+.subtext {
+  font-family: var(--font-corpo);
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--cinza-text);
+  text-align: center;
+  max-width: 320px;
+  margin: 0 0 28px 0;
+  z-index: 2;
+}
+
+.inputContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 3px;
+  fill: var(--cinza-text) !important;
+}
+
+.inputField {
+  width: 100%;
+  height: 42px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--cinza-text);
+  margin: 12px 0;
+  color: var(--branco);
+  font-family: var(--font-corpo);
+  font-size: 0.95em;
+  font-weight: 500;
+  box-sizing: border-box;
+  padding-left: 32px;
+  transition: border-color 0.2s ease;
+}
+
+.inputField:focus {
+  outline: none;
+  border-bottom: 2px solid var(--color-logo);
+}
+
+.inputField::placeholder {
+  color: var(--cinza-text);
+  font-family: var(--font-corpo);
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.inputField.fieldError {
+  border-bottom: 2px solid #D85A30;
+}
+
+/* Regrinhas de força/requisito da senha */
+.passwordHints {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 2px 0 6px 0;
+  z-index: 2;
+}
+
+.passwordHints span {
+  font-family: var(--font-corpo);
+  font-size: 0.68rem;
+  color: var(--cinza-text);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s ease;
+}
+
+.passwordHints span::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--cinza-text);
+  transition: background-color 0.2s ease;
+}
+
+.passwordHints span.valid {
+  color: var(--color-logo);
+}
+
+.passwordHints span.valid::before {
+  background-color: var(--color-logo);
+}
+
+.errorMessage {
+  width: 100%;
+  min-height: 16px;
+  font-family: var(--font-corpo);
+  font-size: 0.72rem;
+  color: #D85A30;
+  text-align: left;
+  margin: 4px 0 0 0;
+  z-index: 2;
+}
+
+#button {
+  z-index: 2;
+  position: relative;
+  width: 100%;
+  height: 3em;
+  margin: 16px 0 8px 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-logo);
+  color: var(--cinza-text-button);
+  font-family: var(--font-corpo);
+  font-size: 0.9em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+#button:hover {
+  color: var(--preto);
+}
+
+#button::after {
+  content: "";
+  background: var(--branco);
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+#button:hover::after {
+  transform: skewX(-45deg) scale(1, 1);
+  transition: all 0.5s;
+}
+
+.forgotLink {
+  z-index: 2;
+  display: block;
+  text-align: center;
+  font-family: var(--font-corpo);
+  font-size: .75em;
+  font-weight: 500;
+  color: var(--cinza-text);
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: color 0.2s ease;
+}
+
+.forgotLink:hover {
+  color: var(--color-logo);
+}
+
+/* Mensagem de sucesso e de token inválido, trocam de lugar com a form via JS */
+.successMessage,
+.invalidTokenMessage {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  z-index: 2;
+}
+
+.successMessage.active,
+.invalidTokenMessage.active {
+  display: flex;
+}
+
+.successMessage .successIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(137, 242, 0, 0.12);
+  color: var(--color-logo);
+}
+
+.invalidTokenMessage .errorIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(216, 90, 48, 0.12);
+  color: #D85A30;
+}
+
+/* ---------- Responsividade da página ---------- */
+@media (max-width: 1300px) {
+  .section_nova_senha {
+    padding: 100px 40px 60px;
+  }
+
+  .box_info_nova_senha {
+    width: 70%;
+  }
+}
+
+@media (max-width: 900px) {
+  .section_nova_senha {
+    padding: 90px 24px 50px;
+  }
+
+  .box_info_nova_senha {
+    width: 100%;
+  }
+
+  .form_main {
+    width: 100%;
+    max-width: 420px;
+    min-height: 460px;
+    padding: 40px 32px;
+  }
+
+  .form_blob::before {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section_nova_senha {
+    padding: 84px 16px 40px;
+  }
+
+  .form_main {
+    min-height: auto;
+    padding: 32px 22px;
+    border-radius: 14px;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+    margin: 0 0 8px 0;
+  }
+
+  .subtext {
+    font-size: .8rem;
+    margin-bottom: 22px;
+  }
+
+  .inputField {
+    height: 38px;
+    font-size: .85em;
+    padding-left: 28px;
+  }
+
+  .inputField::placeholder {
+    font-size: .9em;
+  }
+
+  .passwordHints span {
+    font-size: .64rem;
+  }
+
+  #button {
+    height: 2.7em;
+    font-size: .85em;
+  }
+
+  .forgotLink {
+    font-size: .72em;
+  }
+
+  .form_blob::before {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .section_nova_senha {
+    padding: 80px 12px 32px;
+  }
+
+  .form_main {
+    padding: 28px 18px;
+    border-radius: 12px;
+  }
+
+  .heading {
+    font-size: 1.4rem;
+  }
+
+  .subtext {
+    max-width: 260px;
+  }
+
+  .inputField {
+    height: 36px;
+    padding-left: 26px;
+  }
+
+  .inputIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  #button {
+    height: 2.5em;
+    letter-spacing: 0.5px;
+  }
+
+  .form_blob::before {
+    font-size: 3.5rem;
+  }
+
+  .form_blob {
+    bottom: -24px;
+    right: -8px;
+  }
+}

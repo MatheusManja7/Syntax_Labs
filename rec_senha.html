@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style/root.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_rec_senha.css">
+    <link rel="stylesheet" href="style/style_menu_rod.css">
+    <title>Recuperar Senha</title>
+</head>
+<body>
+    <!-- Menu  -->
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <img src="assets/logo_name_sf.png" alt="">
+        </a>
+
+        <div class="navbar_actions" id="navbar_actions">
+            <a href="login.html" class="btn" id="budget_btn">voltar</a>
+        </div>
+    </header>
+
+    <!-- Efeito de fundo Geral -->
+    <div id="background"></div>
+
+    <section class="section_rec_senha">
+        <!-- Caixa que contem os elementos da section  -->
+        <div class="box_info_rec_senha">
+            <!-- Formulario  -->
+            <form action="" class="form_main" id="recSenhaForm">
+                <span class="form_blob" aria-hidden="true"></span>
+
+                <!-- Estado inicial: pedir o e-mail -->
+                <div class="formStep" id="formStep">
+                    <p class="heading">Recuperar senha</p>
+                    <p class="subtext">Informe o e-mail cadastrado e enviaremos um link para você criar uma nova senha.</p>
+
+                    <div class="inputContainer">
+                        <svg class="inputIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"></path>
+                        </svg>
+                        <input type="email" class="inputField" id="email" placeholder="Seu e-mail" required>
+                    </div>
+
+                    <button id="button" type="submit">Enviar link</button>
+                    <a class="forgotLink" href="login.html">Voltar para o login</a>
+                </div>
+
+                <!-- Estado de sucesso, ativado via JS depois do envio -->
+                <div class="successMessage" id="successMessage">
+                    <span class="successIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.007 1.05L7.7 12.05a.75.75 0 0 1-1.047.02L3.293 8.98a.75.75 0 1 1 1.014-1.107l2.85 2.601 5.579-6.505Z"></path>
+                        </svg>
+                    </span>
+                    <p class="heading" style="font-size: 1.3rem;">Link enviado!</p>
+                    <p class="subtext">Verifique sua caixa de entrada (e o spam) para redefinir sua senha.</p>
+                    <a class="forgotLink" href="login.html">Voltar para o login</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Scripts JS  -->
+    <!-- Script Vanta - Efeito de fundo geral  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>  
+    <script src="js/script_fundo.js"></script>  
+    <script src="js/script_menu.js"></script>
+
+    <!-- Script Temporario  -->
+    <script>
+        // Troca o formulário pela mensagem de sucesso ao enviar.
+        // Substituir pela chamada real da API quando integrar o backend.
+        const recSenhaForm = document.getElementById('recSenhaForm');
+        const formStep = document.getElementById('formStep');
+        const successMessage = document.getElementById('successMessage');
+
+        recSenhaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formStep.style.display = 'none';
+            successMessage.classList.add('active');
+        });
+    </script>
+</body>
+</html>

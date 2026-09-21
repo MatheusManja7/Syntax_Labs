@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style/root.css">   
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_menu_rod.css">
+    <link rel="stylesheet" href="style/style_nova_senha.css">
+    <title>Nova Senha</title>
+</head>
+<body>
+    <!-- Menu  -->
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <img src="assets/logo_name_sf.png" alt="">
+        </a>
+    </header>
+
+    <!-- Efeito de fundo Geral -->
+    <div id="background"></div>
+
+    <section class="section_nova_senha">
+        <!-- Caixa que contem os elementos da section  -->
+        <div class="box_info_nova_senha">
+            <form action="" class="form_main" id="novaSenhaForm">
+                <span class="form_blob" aria-hidden="true"></span>
+
+                <!-- Estado normal: definir a nova senha -->
+                <div class="formStep" id="formStep">
+                    <p class="heading">Nova senha</p>
+                    <p class="subtext">Crie uma nova senha para voltar a acessar sua conta.</p>
+
+                    <div class="inputContainer">
+                        <svg class="inputIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+                        </svg>
+                        <input type="password" class="inputField" id="password" placeholder="Nova senha" required>
+                    </div>
+
+                    <div class="passwordHints" id="passwordHints">
+                        <span data-rule="length">mín. 8 caracteres</span>
+                        <span data-rule="upper">1 letra maiúscula</span>
+                        <span data-rule="number">1 número</span>
+                    </div>
+
+                    <div class="inputContainer">
+                        <svg class="inputIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+                        </svg>
+                        <input type="password" class="inputField" id="confirmPassword" placeholder="Confirmar nova senha" required>
+                    </div>
+
+                    <p class="errorMessage" id="errorMessage"></p>
+
+                    <button id="button" type="submit">Salvar nova senha</button>
+                    <a class="forgotLink" href="login.html">Voltar para o login</a>
+                </div>
+
+                <!-- Estado de sucesso, ativado via JS depois do envio -->
+                <div class="successMessage" id="successMessage">
+                    <span class="successIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.007 1.05L7.7 12.05a.75.75 0 0 1-1.047.02L3.293 8.98a.75.75 0 1 1 1.014-1.107l2.85 2.601 5.579-6.505Z"></path>
+                        </svg>
+                    </span>
+                    <p class="heading" style="font-size: 1.3rem;">Senha atualizada!</p>
+                    <p class="subtext">Sua senha foi redefinida com sucesso. Você já pode fazer login com ela.</p>
+                    <a class="forgotLink" href="login.html">Ir para o login</a>
+                </div>
+
+                <!-- Estado de token ausente/expirado, ativado via JS ao carregar a página -->
+                <div class="invalidTokenMessage" id="invalidTokenMessage">
+                    <span class="errorIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
+                        </svg>
+                    </span>
+                    <p class="heading" style="font-size: 1.3rem;">Link inválido</p>
+                    <p class="subtext">Esse link de recuperação não é válido ou já expirou. Solicite um novo.</p>
+                    <a class="forgotLink" href="rec_senha.html">Solicitar novo link</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Scripts JS  -->
+    <!-- Script Vanta - Efeito de fundo geral  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>  
+    <script src="js/script_fundo.js"></script>  
+    <script src="js/script_menu.js"></script>
+</body>
+</html>

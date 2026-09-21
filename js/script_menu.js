@@ -3,6 +3,7 @@
 const navbar = document.getElementById('navbar');
 
 function verificarScroll() {
+    if (!navbar) return;
     if (window.scrollY > 40) {
         navbar.classList.add('scrolled');
     } else {
@@ -21,7 +22,10 @@ const navbarActions = document.getElementById('navbar_actions');
 const profileIcon = document.getElementById('profile_icon');
 const budgetBtn = document.getElementById('budget_btn');
 
+const temMenuMobile = Boolean(hamburger && menu && overlay);
+
 function abrirMenu() {
+    if (!temMenuMobile) return;
     hamburger.classList.add('active');
     menu.classList.add('active');
     overlay.classList.add('active');
@@ -30,6 +34,7 @@ function abrirMenu() {
 }
 
 function fecharMenu() {
+    if (!temMenuMobile) return;
     hamburger.classList.remove('active');
     menu.classList.remove('active');
     overlay.classList.remove('active');
@@ -37,38 +42,45 @@ function fecharMenu() {
     document.body.style.overflow = '';
 }
 
-hamburger.addEventListener('click', () => {
-    const estaAberto = menu.classList.contains('active');
-    estaAberto ? fecharMenu() : abrirMenu();
-});
+if (temMenuMobile) {
+    hamburger.addEventListener('click', () => {
+        const estaAberto = menu.classList.contains('active');
+        estaAberto ? fecharMenu() : abrirMenu();
+    });
 
-overlay.addEventListener('click', fecharMenu);
+    overlay.addEventListener('click', fecharMenu);
 
-// Fecha o menu ao clicar em qualquer link dentro dele
-menu.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-        fecharMenu();
-    }
-});
-
-// ----- Move o perfil e o botão de orçamento entre o navbar e o menu mobile -----
-const mediaQuery = window.matchMedia('(max-width: 900px)');
-
-function reorganizarNavbar(e) {
-    const ehMobile = e.matches;
-
-    if (ehMobile) {
-        // Ícone de perfil vai para o topo do menu (antes dos links)
-        menu.insertBefore(profileIcon, menu.firstChild);
-        // Botão de orçamento vai para o final do menu (depois dos links)
-        menu.appendChild(budgetBtn);
-    } else {
-        // Move de volta para o navbar, antes do hambúrguer
-        navbarActions.insertBefore(budgetBtn, hamburger);
-        navbarActions.insertBefore(profileIcon, hamburger);
-        fecharMenu();
-    }
+    // Fecha o menu ao clicar em qualquer link dentro dele
+    menu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            fecharMenu();
+        }
+    });
+} else if (hamburger) {
+    // Página sem <nav>/overlay: o hambúrguer não tem o que abrir, então some
+    hamburger.style.display = 'none';
 }
 
-reorganizarNavbar(mediaQuery);
-mediaQuery.addEventListener('change', reorganizarNavbar);   
+// ----- Move o perfil e o botão de orçamento entre o navbar e o menu mobile -----
+if (temMenuMobile && navbarActions) {
+    const mediaQuery = window.matchMedia('(max-width: 900px)');
+
+    function reorganizarNavbar(e) {
+        const ehMobile = e.matches;
+
+        if (ehMobile) {
+            if (profileIcon) menu.insertBefore(profileIcon, menu.firstChild);
+
+            if (budgetBtn) menu.appendChild(budgetBtn);
+
+        } else {
+            if (budgetBtn) navbarActions.insertBefore(budgetBtn, hamburger);
+            
+            if (profileIcon) navbarActions.insertBefore(profileIcon, hamburger);
+            fecharMenu();
+        }
+    }
+
+    reorganizarNavbar(mediaQuery);
+    mediaQuery.addEventListener('change', reorganizarNavbar);
+}
