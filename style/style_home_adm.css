@@ -1,30 +1,58 @@
 /* ===== Painel Administrativo ===== */
+/* Trava a página em 100vh, sem scroll */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 .dashboard {
     position: relative;
     z-index: 1;
     width: 100%;
-    min-height: 100vh;
-    height: auto;
+    height: 100vh;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 140px clamp(20px, 5vw, 64px) 80px;
+    padding: 84px clamp(20px, 5vw, 64px) 0;
+    background-color: var(--cinza-text);
+    overflow: hidden;
+}
+
+/* Efeito de fundo — mesma estrutura da section Sobre (bg_effect),
+   com as cores adaptadas para o fundo claro do painel */
+.dashboard .bg_effect {
+    background:
+        radial-gradient(560px circle at 80% 45%, rgba(137, 242, 0, .05), transparent 65%),
+        radial-gradient(420px circle at 14% 20%, rgba(137, 242, 0, .05), transparent 60%);
+}
+
+.dashboard .bg_effect::before {
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(3, 3, 3, 0.08) 1px, transparent 1px);
 }
 
 .box_dashboard {
+    position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 1120px;
+    height: 100%;
+    max-height: 720px;
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    justify-content: center;
+    gap: clamp(20px, 4vh, 48px);
 }
 
 /* Cabeçalho */
 .dashboard_header {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
     max-width: 620px;
+    flex-shrink: 0;
 }
 
 .mono_mark_adm {
@@ -43,40 +71,84 @@
 }
 
 .dashboard_header p {
-    color: var(--cinza-text);
+    color: var(--cinza-claro);
     max-width: 480px;
 }
 
 /* Grid de cards */
 .dashboard_grid {
+    flex: 1;
+    min-height: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 18px;
 }
 
 .dashboard_card {
+    position: relative;
+    isolation: isolate;
     display: flex;
     flex-direction: column;
+    min-height: 0;
     border-radius: 14px;
-    background-color: rgba(245, 245, 245, 0.025);
-    border: 1px solid rgba(245, 245, 245, 0.08);
+    background-color: var(--cinza-text-button);
     text-decoration: none;
     overflow: hidden;
-    transition: border-color .3s ease, background-color .3s ease, transform .3s ease;
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition: transform .3s ease;
 }
 
 .dashboard_card:hover {
-    border-color: rgba(137, 242, 0, 0.35);
-    background-color: rgba(137, 242, 0, 0.035);
     transform: translateY(-3px);
 }
 
+/* Luz verde girando na borda, igual ao box_form do formulário */
+.dashboard_card::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 300deg,
+        var(--color-logo) 340deg,
+        transparent 360deg
+    );
+    animation: rotate_border_adm 6s linear infinite;
+    z-index: -2;
+}
+
+.dashboard_card::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: var(--cinza-text-button);
+    border-radius: 13px;
+    z-index: -1;
+}
+
+.dashboard_card:nth-child(2)::before { animation-delay: -1.5s; }
+.dashboard_card:nth-child(3)::before { animation-delay: -3s; }
+.dashboard_card:nth-child(4)::before { animation-delay: -4.5s; }
+
+@keyframes rotate_border_adm {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .card_topbar {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    border-bottom: 1px solid rgba(245, 245, 245, 0.07);
+    border-bottom: 1px solid rgba(245, 245, 245, 0.08);
 }
 
 .card_dots {
@@ -95,30 +167,32 @@
     background-color: var(--color-logo);
 }
 
-.card_filename {
-    font-family: var(--font-code);
-    font-size: 0.72rem;
-    color: var(--cinza-text);
-}
-
 .card_body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 24px;
+    padding: clamp(16px, 2.2vh, 24px) 20px;
     flex: 1;
+    min-height: 0;
+}
+
+.card_head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
 .card_icon {
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background-color: rgba(137, 242, 0, 0.08);
+    background-color: rgba(137, 242, 0, 0.1);
     color: var(--color-logo);
-    margin-bottom: 4px;
 }
 
 .dashboard_card h3 {
@@ -126,10 +200,9 @@
 }
 
 .dashboard_card p {
-    color: var(--cinza-text);
-    font-size: 0.88rem;
-    line-height: 1.55;
-    flex: 1;
+    color: var(--cinza-claro);
+    font-size: 0.75rem;
+    line-height: 1.5;
 }
 
 .card_footer {
@@ -172,11 +245,58 @@
 @media (max-width: 860px) {
     .dashboard_grid {
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .dashboard_header p {
+        display: none;
     }
 }
 
 @media (max-width: 720px) {
     .dashboard {
-        padding-top: 120px;
+        padding-top: 84px;
+    }
+
+    .box_dashboard {
+        max-height: none;
+        gap: 16px;
+    }
+
+    .card_body {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .card_head {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .card_icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .dashboard_card p,
+    .card_stat {
+        display: none;
+    }
+
+    .dashboard_card h3 {
+        font-size: 1rem;
+    }
+
+    .card_footer {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+        flex-shrink: 0;
+    }
+
+    .card_topbar {
+        padding: 8px 14px;
     }
 }

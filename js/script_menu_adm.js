@@ -1,18 +1,6 @@
 // script_menu_adm.js
-// JS - Fundo do menu adm: ao scrollar, o menu fica escuro
-const navbarAdm = document.getElementById('navbar_adm');
-
-function verificarScrollAdm() {
-    if (!navbarAdm) return;
-    if (window.scrollY > 40) {
-        navbarAdm.classList.add('scrolled');
-    } else {
-        navbarAdm.classList.remove('scrolled');
-    }
-}
-
-window.addEventListener('scroll', verificarScrollAdm);
-verificarScrollAdm();
+// O menu adm é sempre preto (sem efeito de scroll), então não há
+// necessidade de monitorar o scroll da página aqui.
 
 // JS - Menu mobile (hambúrguer) do painel administrativo
 const hamburgerAdm = document.getElementById('hamburger_adm');
