@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style/root.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_menu_adm.css">
+    <link rel="stylesheet" href="style/style_home_adm.css">
+    <title>Painel Administrativo · Syntax Labs</title>
+</head>
+<body>
+    <!-- Menu Administrativo (independente do menu público) -->
+    <header class="navbar_adm" id="navbar_adm">
+        <a href="home_adm.html" class="logo_adm">
+            <img src="assets/logo_name_sf.png" alt="Syntax Labs">
+        </a>
+
+        <div class="navbar_adm_actions" id="navbar_adm_actions">
+            <a href="perfil.html" class="profile_icon_adm" id="profile_icon_adm" aria-label="Meu perfil">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"></path>
+                </svg>
+                <span>Meu perfil</span>
+            </a>
+
+            <a href="login.html" class="btn_sair" id="btn_sair">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <path d="M16 17l5-5-5-5"></path>
+                    <path d="M21 12H9"></path>
+                </svg>
+                <span>Sair</span>
+            </a>
+        </div>
+
+        <button class="hamburger_adm" id="hamburger_adm" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="menu_overlay_adm" id="menu_overlay_adm"></div>
+    </header>
+
+    <!-- Efeito de fundo -->
+    <div id="background"></div>
+
+    <!-- Painel -->
+    <main class="dashboard" id="dashboard">
+        <div class="box_dashboard">
+            <div class="dashboard_header">
+                <span class="mono_mark_adm">{ painel administrativo }</span>
+                <h1>
+                    O que você precisa
+                    <span>gerenciar</span>
+                    hoje?
+                </h1>
+                <p>
+                    Orçamentos, mensagens e o acesso da equipe — tudo reunido
+                    em um só lugar.
+                </p>
+            </div>
+
+            <div class="dashboard_grid">
+                <a href="orcamentos.html" class="dashboard_card">
+                    <div class="card_topbar">
+                        <div class="card_dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="card_filename">orcamentos.financeiro</span>
+                    </div>
+
+                    <div class="card_body">
+                        <div class="card_icon">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20"></path>
+                                <path d="M17 5.5c0-1.4-2.2-2.5-5-2.5s-5 1.1-5 2.5S9.2 8 12 8s5 1.1 5 2.5S14.8 13 12 13s-5-1.1-5-2.5"></path>
+                                <path d="M7 15.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Orçamentos</h3>
+                        <p>Visualize e gerencie as solicitações de orçamento enviadas pelo site.</p>
+
+                        <div class="card_footer">
+                            <span class="card_stat"><strong>8</strong> novas solicitações</span>
+                            <span class="card_chevron" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="mensagens.html" class="dashboard_card">
+                    <div class="card_topbar">
+                        <div class="card_dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="card_filename">mensagens.inbox</span>
+                    </div>
+
+                    <div class="card_body">
+                        <div class="card_icon">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                                <path d="M3 7l9 6 9-6"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Mensagens</h3>
+                        <p>Visualize e responda as mensagens recebidas pelo formulário Fale Conosco.</p>
+
+                        <div class="card_footer">
+                            <span class="card_stat"><strong>3</strong> não lidas</span>
+                            <span class="card_chevron" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="cadastrar_usuario.html" class="dashboard_card">
+                    <div class="card_topbar">
+                        <div class="card_dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="card_filename">usuarios.cadastro</span>
+                    </div>
+
+                    <div class="card_body">
+                        <div class="card_icon">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="8" r="3.5"></circle>
+                                <path d="M2.5 20c0-3.6 2.9-6.2 6.5-6.2s6.5 2.6 6.5 6.2"></path>
+                                <path d="M18 8v6"></path>
+                                <path d="M15 11h6"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Cadastrar usuário</h3>
+                        <p>Cadastre uma nova pessoa autorizada a acessar o painel administrativo.</p>
+
+                        <div class="card_footer">
+                            <span class="card_stat">Adicionar novo acesso</span>
+                            <span class="card_chevron" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="lista_usuarios.html" class="dashboard_card">
+                    <div class="card_topbar">
+                        <div class="card_dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="card_filename">usuarios.lista</span>
+                    </div>
+
+                    <div class="card_body">
+                        <div class="card_icon">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="8" cy="7" r="3"></circle>
+                                <circle cx="17" cy="8.5" r="2.5"></circle>
+                                <path d="M2.5 20c0-3.3 2.5-5.7 5.5-5.7s5.5 2.4 5.5 5.7"></path>
+                                <path d="M14.5 14.7c2.6.2 4.5 2.4 4.5 5.3"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Lista de usuários</h3>
+                        <p>Visualize e gerencie as pessoas autorizadas a acessar o painel.</p>
+
+                        <div class="card_footer">
+                            <span class="card_stat"><strong>12</strong> usuários ativos</span>
+                            <span class="card_chevron" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts js -->
+    <script src="js/script_menu_adm.js"></script>
+</body>
+</html>
