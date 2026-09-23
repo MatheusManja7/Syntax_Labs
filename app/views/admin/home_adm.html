@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="../../../public/style/root.css">                  
+    <link rel="stylesheet" href="../../../public/style/style_adm/style_home_adm.css">          
+    <link rel="stylesheet" href="../../../public/style/style_menus_rod/style_menu_rod.css">  
+    <link rel="stylesheet" href="../../../public/style/style_menus_rod/style_menu_adm.css">  
+    
+    <title>Home Adm</title>
+</head>
+<body>
+
+    <!-- Menu adm -->
+    <header class="navbar navbar_adm" id="navbar">
+        <a href="../admin/home_adm.html" class="logo">
+            <img src="../../../public/assets/logo_name_sf.png" alt="Início">
+        </a>
+
+        <nav class="menu" id="menu">
+            <a href="orcamentos.html">orçamentos</a>
+            <a href="mensagens.html">mensagens</a>
+            <a href="cadastro_adm.html">novo adm</a>
+            <a href="listagem_adm.html">admins</a>
+        </nav>
+
+        <div class="navbar_actions" id="navbar_actions">
+            <a href="../auth/login.html" class="btn" id="logout_btn">sair</a>
+
+        <a href="perfil_adm.html" class="profile_icon" id="profile_icon" aria-label="Meu perfil">
+            <i class="bi bi-person" aria-hidden="true"></i>
+        </a>
+
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="menu_overlay" id="menu_overlay"></div>
+    </header>
+
+    <!-- Conteúdo da home adm -->
+    <main class="main_adm">
+        <!-- Efeito de Fundo  -->
+        <div class="bg_effect"></div>
+
+        <!-- Caixa que contem as informações da página  -->
+        <div class="box_info_home_adm">
+            <!-- Grade dos Cards  -->
+            <div class="grid_container">
+                <!-- Card_1 - Orçamento  -->
+                <a href="orcamentos.html" class="cards">
+                    <span class="card_deco" aria-hidden="true"><i class="bi bi-file-earmark-text"></i></span>
+                    <div class="card_top">
+                        <span class="card_icon"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></span>
+                        <div class="card_text">
+                            <h3>Orçamentos</h3>
+                            <p>Veja os pedidos de orçamento recebidos.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card_2 - Mensagens -->
+                <a href="mensagens.html" class="cards">
+                    <span class="card_deco" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+                    <div class="card_top">
+                        <span class="card_icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>
+                        <div class="card_text">
+                            <h3>Mensagens</h3>
+                            <p>Leia as mensagens enviadas pelo site.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card_3 - Cadastro de Adms  -->
+                <a href="cadastro_adm.html" class="cards">
+                    <span class="card_deco" aria-hidden="true"><i class="bi bi-person-plus"></i></span>
+                    <div class="card_top">
+                        <span class="card_icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
+                        <div class="card_text">
+                            <h3>Cadastrar adm</h3>
+                            <p>Adicione um novo administrador ao painel.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card_4 - Lista de Adms  -->
+                <a href="listagem_adm.html" class="cards">
+                    <span class="card_deco" aria-hidden="true"><i class="bi bi-people"></i></span>
+                    <div class="card_top">
+                        <span class="card_icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+                        <div class="card_text">
+                            <h3>Listar adms</h3>
+                            <p>Consulte os administradores cadastrados.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts JS  -->
+    <script src="../../../public/js/script_menu_adm.js"></script>
+</body>
+</html>

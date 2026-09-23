@@ -1,0 +1,23 @@
+.navbar.navbar_adm {
+    background-color: var(--preto);
+    backdrop-filter: none;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Link da página atual */
+.menu a.active {
+    color: var(--color-logo);
+}
+
+.menu a.active::after {
+    width: 100%;
+}
+
+.main_adm {
+    padding: 110px 6% 60px;
+}
+
+.profile_icon i {
+    font-size: 20px;
+    line-height: 1;
+}

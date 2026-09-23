@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-corpo);
+}
+
+/* Definições Gerais de texts */
+h1, h2, h3, h4 {
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    color: var(--branco);
+}
+
+h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    line-height: 1.15;
+}
+
+h2 {
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+    line-height: 1.35;
+}
+
+h4 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+p {
+    font-family: var(--font-corpo);
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--branco);
+}
+
+/* Area Total da Página  */
+.main_adm {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--preto);
+}
+
+/* Efeito de fundo  */
+.bg_effect {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(560px circle at 80% 45%, rgba(137, 242, 0, .05), transparent 65%),
+        radial-gradient(420px circle at 14% 20%, rgba(137, 242, 0, .05), transparent 60%);
+}
+
+/* Grade de linhas - Decoração */
+.bg_effect::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(245, 245, 245, 0.060) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 245, 245, .060) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
+}
+
+.box_info_home_adm {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid_container {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    padding: 20px;
+}
+
+/* Efeito animado da borda */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.cards {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    min-height: clamp(180px, 26vh, 280px);
+    padding: 32px;
+    background-color: var(--cinza);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: var(--branco);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Borda animada */
+.cards::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: 2;
+    padding: 2px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--angle),
+        transparent 0%,
+        transparent 60%,
+        var(--color-logo) 100%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    animation: girar_borda 3s linear infinite paused;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes girar_borda {
+    to { --angle: 360deg; }
+}
+
+.cards:hover,
+.cards:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+}
+
+.cards:hover::before,
+.cards:focus-visible::before {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+.cards:focus-visible {
+    outline: 2px solid var(--color-logo);
+    outline-offset: 4px;
+}
+
+/* Decoração interna do card */
+.card_deco {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+/* Pontinhos no canto direito */
+.card_deco::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(245, 245, 245, 0.16) 1px, transparent 1.5px);
+    background-size: 18px 18px;
+    -webkit-mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 65%);
+    mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 65%);
+}
+
+/* Brilho verde no canto */
+.card_deco::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(380px circle at 100% 100%, rgba(137, 242, 0, 0.12), transparent 65%);
+    opacity: 0.55;
+    transition: opacity 0.4s ease;
+}
+
+.cards:hover .card_deco::after {
+    opacity: 1;
+}
+
+/* Ícone gigante de fundo do card */
+.card_deco i {
+    position: absolute;
+    right: -14px;
+    bottom: -26px;
+    font-size: clamp(130px, 14vw, 180px);
+    line-height: 1;
+    color: var(--color-logo);
+    opacity: 0.07;
+    transform: rotate(-12deg);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.cards:hover .card_deco i {
+    opacity: 0.14;
+    transform: rotate(-6deg) scale(1.06);
+}
+
+/* Conteúdo do card (acima da decoração) */
+.card_top {
+    position: relative; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card_text {
+    flex: 1;
+    min-width: 0;
+}
+
+.card_text h3 {
+    margin: 0 0 4px;
+}
+
+.card_text p {
+    opacity: 0.65;
+}
+
+.card_icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    color: var(--color-logo);
+    background-color: rgba(137, 242, 0, 0.08);
+    border: 1px solid rgba(137, 242, 0, 0.25);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card_icon i {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.cards:hover .card_icon {
+    background-color: var(--color-logo);
+    color: var(--cinza-text-button);
+}
+
+/* ----- Responsividade da Página ----- */
+@media (max-width: 600px) {
+    .grid_container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .cards {
+        min-height: 160px;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .card_top {
+        gap: 14px;
+    }
+
+    .card_icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .card_icon i {
+        font-size: 22px;
+    }
+}
