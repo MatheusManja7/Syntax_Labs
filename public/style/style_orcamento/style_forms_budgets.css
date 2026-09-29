@@ -309,42 +309,11 @@ textarea {
     }
 }
 
-/* ---------- Sub-bloco: "Se sim, quais materiais você possui?" etc. ---------- */
-.nested_block {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 18px 18px 4px;
-    border-left: 2px solid rgba(137, 242, 0, 0.35);
-    background: rgba(245, 245, 245, 0.015);
-    border-radius: 0 10px 10px 0;
-}
-
-.nested_block > label,
-.nested_block > .field_label {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--branco);
-}
-
 /* ---------- Checklist dinâmica de funcionalidades ---------- */
 #funcionalidades_container {
     display: flex;
     flex-direction: column;
     gap: 22px;
-}
-
-.func_subgroup {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.func_subgroup_title {
-    font-family: var(--font-code);
-    font-size: 0.75rem;
-    letter-spacing: .02em;
-    color: var(--color-logo);
 }
 
 /* ---------- Estado de erro em grupos de pills obrigatórios ---------- */
@@ -499,9 +468,6 @@ textarea {
     .orcamento_dados {
         gap: 24px;
     }
-    .nested_block {
-        padding: 14px 14px 2px;
-    }
     .field_hint,
     .form_footer_note {
         font-size: 0.75rem;
@@ -515,9 +481,6 @@ textarea {
 }
 
 @media (max-width: 560px) {
-  .budget {
-    padding: 48px 20px;
-  }
   .box_info_budget {
     padding: 40px 24px;
   }
@@ -526,14 +489,8 @@ textarea {
   }
 
   /* Reduz o botão e as linhas decorativas proporcionalmente */
-  .btn-container {
-    --corner-dist: 12px;
-  }
   .btn-corner {
     width: 18px;
-  }
-  #btn-budget {
-    min-width: 140px;
   }
   .btn {
     padding: 0.5em 1em;
@@ -557,17 +514,9 @@ textarea {
   .btn-text {
     font-size: .9rem;
   }
-
   /* Ajuste adicional para telas bem pequenas */
-  .btn-container {
-    --corner-dist: 9px;
-  }
   .btn-corner {
     width: 14px;
-  }
-  #btn-budget {
-    min-width: 120px;
-    padding: 0.45em 0.9em;
   }
   .btn-drawer {
     font-size: 0.5rem;
@@ -625,15 +574,8 @@ textarea {
     }
 
     /* Ajuste adicional para telas bem pequenas */
-    .btn-container {
-        --corner-dist: 9px;
-    }
     .btn-corner {
         width: 14px;
-    }
-    #btn-budget {
-        min-width: 120px;
-        padding: 0.45em 0.9em;
     }
     .btn-drawer {
         font-size: 0.5rem;

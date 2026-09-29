@@ -27,7 +27,7 @@
 <body>
     <!-- Menu  -->
     <header class="navbar" id="navbar">
-        <a href="../home/index.html" class="logo">
+        <a href="../../../index.html" class="logo">
             <img src="../../../public/assets/logo_name_sf.png" alt="">
         </a>
 
@@ -48,7 +48,7 @@
                 </svg>
             </a>
 
-            <a href="../home/index.html" class="btn" id="budget_btn">voltar</a>
+            <a href="../../../index.html" class="btn" id="budget_btn">voltar</a>
 
             <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
                 <span></span>
@@ -125,28 +125,19 @@
             <div class="orcamento_right">
                 <!-- Forms -->
                 <form class="form_orcamento" id="form_orcamento" action="" method="POST" novalidate>
-                    <!-- Hidden inputs sincronizados via JS com os grupos de pills -->
-                    <input type="hidden" name="contato_preferido" id="input_contato_preferido" value="">
-                    <input type="hidden" name="tamanho_empresa" id="input_tamanho_empresa" value="">
                     <input type="hidden" name="tipo_projeto" id="input_tipo_projeto" value="">
-                    <input type="hidden" name="possui_atualmente" id="input_possui_atualmente" value="">
                     <input type="hidden" name="objetivo_projeto" id="input_objetivo_projeto" value="">
-                    <input type="hidden" name="identidade_visual" id="input_identidade_visual" value="">
-                    <input type="hidden" name="materiais_marca" id="input_materiais_marca" value="">
+                    <input type="hidden" name="possui_atualmente" id="input_possui_atualmente" value="">
                     <input type="hidden" name="faixa_investimento" id="input_faixa_investimento" value="">
                     <input type="hidden" name="inicio_projeto" id="input_inicio_projeto" value="">
-                    <input type="hidden" name="data_limite_sim_nao" id="input_data_limite_sim_nao" value="">
-                    <input type="hidden" name="possui_dominio" id="input_possui_dominio" value="">
-                    <input type="hidden" name="possui_hospedagem" id="input_possui_hospedagem" value="">
-                    <input type="hidden" name="possui_sistema" id="input_possui_sistema" value="">
 
-                    <!-- ===================== 01. Sobre você ===================== -->
+                    <!-- 01. Contato -->
                     <div class="form_step">
                         <div class="step_head">
                             <div class="step_number"><span>01</span></div>
                             <div class="step_head_text">
                                 <h3>Sobre você</h3>
-                                <span class="step_head_sub">Quem está por trás dessa solicitação.</span>
+                                <span class="step_head_sub">Pra onde enviamos a proposta.</span>
                             </div>
                         </div>
 
@@ -155,123 +146,36 @@
                                 <label for="nome">Nome completo <span class="required">*</span></label>
                                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
                             </div>
-
                             <div class="form_group">
-                                <label for="cargo">Cargo / função <span class="required">*</span></label>
-                                <input type="text" id="cargo" name="cargo"
-                                    placeholder="Ex.: Diretor, CEO, Gerente de Marketing, Fundador..." required>
+                                <label for="nome_empresa">Empresa <span class="required">*</span></label>
+                                <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Nome da sua empresa" required>
                             </div>
                         </div>
 
                         <div class="form_row">
                             <div class="form_group">
-                                <label for="email">E-mail profissional <span class="required">*</span></label>
+                                <label for="email">E-mail <span class="required">*</span></label>
                                 <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required>
                             </div>
-
                             <div class="form_group">
-                                <label for="telefone">Telefone / WhatsApp <span class="required">*</span></label>
+                                <label for="telefone">WhatsApp <span class="required">*</span></label>
                                 <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group form_group_full">
-                                <label>Como prefere que entremos em contato? <span class="required">*</span></label>
-                                <div class="pill_group" data-group="contato_preferido" data-mode="single">
-                                    <button type="button" class="pill">WhatsApp</button>
-                                    <button type="button" class="pill">E-mail</button>
-                                    <button type="button" class="pill">Ligação</button>
-                                </div>
-                                <p class="field_error" data-error-for="contato_preferido">Selecione uma opção.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ===================== 02. Sobre a empresa ===================== -->
+                    <!-- 02. Projeto -->
                     <div class="form_step">
                         <div class="step_head">
                             <div class="step_number"><span>02</span></div>
                             <div class="step_head_text">
-                                <h3>Sobre a empresa</h3>
-                                <span class="step_head_sub">O contexto do negócio por trás do projeto.</span>
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group">
-                                <label for="nome_empresa">Nome da empresa <span class="required">*</span></label>
-                                <input type="text" id="nome_empresa" name="nome_empresa"
-                                    placeholder="Nome da sua empresa" required>
-                            </div>
-
-                            <div class="form_group">
-                                <label for="site_atual">Site atual <span class="opt">opcional</span></label>
-                                <input type="url" id="site_atual" name="site_atual" placeholder="https://...">
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group">
-                                <label for="instagram_empresa">Instagram / LinkedIn da empresa <span class="opt">opcional</span></label>
-                                <input type="text" id="instagram_empresa" name="instagram_empresa"
-                                    placeholder="@empresa ou URL">
-                            </div>
-
-                            <div class="form_group">
-                                <label for="segmento">Segmento da empresa <span class="required">*</span></label>
-                                <select id="segmento" name="segmento" required>
-                                    <option value="" disabled selected>Selecione uma opção</option>
-                                    <option>Tecnologia</option>
-                                    <option>Educação</option>
-                                    <option>Saúde</option>
-                                    <option>Comércio</option>
-                                    <option>Indústria</option>
-                                    <option>Serviços</option>
-                                    <option>Finanças</option>
-                                    <option>Marketing</option>
-                                    <option>Imobiliário</option>
-                                    <option>Alimentação</option>
-                                    <option value="Outro">Outro</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group form_group_full conditional_field" id="campo_segmento_outro" hidden>
-                                <label for="segmento_outro">Caso outro, qual segmento?</label>
-                                <input type="text" id="segmento_outro" name="segmento_outro"
-                                    placeholder="Descreva o segmento da empresa">
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group form_group_full">
-                                <label>Tamanho da empresa <span class="opt">opcional</span></label>
-                                <div class="pill_group" data-group="tamanho_empresa" data-mode="single">
-                                    <button type="button" class="pill">1–5 funcionários</button>
-                                    <button type="button" class="pill">6–20</button>
-                                    <button type="button" class="pill">21–50</button>
-                                    <button type="button" class="pill">51–100</button>
-                                    <button type="button" class="pill">101–500</button>
-                                    <button type="button" class="pill">500+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===================== 03. Sobre o projeto ===================== -->
-                    <div class="form_step">
-                        <div class="step_head">
-                            <div class="step_number"><span>03</span></div>
-                            <div class="step_head_text">
                                 <h3>Sobre o projeto</h3>
-                                <span class="step_head_sub">O que você precisa desenvolver.</span>
+                                <span class="step_head_sub">O que você quer construir.</span>
                             </div>
                         </div>
 
                         <div class="form_group form_group_full">
-                            <label>O que você precisa desenvolver? <span class="required">*</span></label>
+                            <label>O que você precisa? <span class="required">*</span></label>
                             <div class="pill_group" data-group="tipo_projeto" data-mode="multi">
                                 <button type="button" class="pill">Site institucional</button>
                                 <button type="button" class="pill">Landing Page</button>
@@ -279,10 +183,8 @@
                                 <button type="button" class="pill">Aplicativo</button>
                                 <button type="button" class="pill">SaaS</button>
                                 <button type="button" class="pill">E-commerce</button>
-                                <button type="button" class="pill">Portal / Plataforma</button>
                                 <button type="button" class="pill">Outro</button>
                             </div>
-                            <p class="field_hint">Pode marcar mais de uma opção — por exemplo, site institucional + sistema administrativo.</p>
                             <div class="other_field" data-other-for="tipo_projeto" hidden>
                                 <input type="text" name="tipo_projeto_outro" placeholder="Qual outro tipo de projeto?">
                             </div>
@@ -290,30 +192,13 @@
                         </div>
 
                         <div class="form_group form_group_full">
-                            <label>Você já possui algo atualmente? <span class="opt">opcional</span></label>
-                            <div class="pill_group" data-group="possui_atualmente" data-mode="single">
-                                <button type="button" class="pill">Não, será um projeto do zero</button>
-                                <button type="button" class="pill">Já possuo, mas quero reformular</button>
-                                <button type="button" class="pill">Já possuo e quero adicionar funcionalidades</button>
-                                <button type="button" class="pill">Quero substituir uma solução existente</button>
-                                <button type="button" class="pill">Outro</button>
-                            </div>
-                            <div class="other_field" data-other-for="possui_atualmente" hidden>
-                                <input type="text" name="possui_atualmente_outro" placeholder="Conte um pouco mais">
-                            </div>
-                        </div>
-
-                        <div class="form_group form_group_full">
-                            <label>Qual é o principal objetivo do projeto? <span class="required">*</span></label>
+                            <label>Principal objetivo <span class="required">*</span></label>
                             <div class="pill_group" data-group="objetivo_projeto" data-mode="multi">
                                 <button type="button" class="pill">Apresentar minha empresa</button>
                                 <button type="button" class="pill">Gerar leads</button>
                                 <button type="button" class="pill">Aumentar vendas</button>
                                 <button type="button" class="pill">Automatizar processos</button>
-                                <button type="button" class="pill">Organizar informações</button>
-                                <button type="button" class="pill">Criar uma plataforma para clientes</button>
                                 <button type="button" class="pill">Criar um produto digital</button>
-                                <button type="button" class="pill">Melhorar a experiência dos usuários</button>
                                 <button type="button" class="pill">Outro</button>
                             </div>
                             <div class="other_field" data-other-for="objetivo_projeto" hidden>
@@ -321,209 +206,59 @@
                             </div>
                             <p class="field_error" data-error-for="objetivo_projeto">Selecione ao menos uma opção.</p>
                         </div>
-                    </div>
 
-                    <!-- ===================== 04. O que você imagina para o projeto ===================== -->
-                    <div class="form_step">
-                        <div class="step_head">
-                            <div class="step_number"><span>04</span></div>
-                            <div class="step_head_text">
-                                <h3>O que você imagina para o projeto?</h3>
-                                <span class="step_head_sub">Sem precisar virar uma especificação técnica.</span>
-                            </div>
+                        <div class="form_group form_group_full">
+                            <label for="descricao_projeto">Conte sua ideia <span class="required">*</span></label>
+                            <textarea id="descricao_projeto" name="descricao_projeto" rows="5"
+                                placeholder="O que você quer construir, o problema que quer resolver e o que a solução deveria fazer."
+                                required></textarea>
                         </div>
 
-                        <div class="form_row">
-                            <div class="form_group form_group_full">
-                                <label for="descricao_projeto">Conte um pouco sobre o que você gostaria de desenvolver <span class="required">*</span></label>
-                                <textarea id="descricao_projeto" name="descricao_projeto" rows="5"
-                                    placeholder="Explique sua ideia, o problema que deseja resolver, como imagina a solução e o que ela deveria fazer."
-                                    required></textarea>
+                        <div class="form_group form_group_full">
+                            <label>Você já possui algo hoje? <span class="opt">opcional</span></label>
+                            <div class="pill_group" data-group="possui_atualmente" data-mode="single">
+                                <button type="button" class="pill">Não, do zero</button>
+                                <button type="button" class="pill">Quero reformular o que tenho</button>
+                                <button type="button" class="pill">Quero adicionar funcionalidades</button>
                             </div>
                         </div>
 
                         <div class="form_group form_group_full">
-                            <label>Quais funcionalidades você imagina para o projeto? <span class="opt">opcional</span></label>
-                            <div id="funcionalidades_container">
-                                <p class="field_hint">Selecione o que você precisa desenvolver na etapa 3 para ver sugestões de funcionalidades.</p>
-                            </div>
+                            <label for="referencias_links">Site atual ou referências <span class="opt">opcional</span></label>
+                            <input type="text" id="referencias_links" name="referencias_links"
+                                placeholder="Cole links de sites que você tem ou gosta">
                         </div>
                     </div>
 
-                    <!-- ===================== 05. Design e referências ===================== -->
+                    <!-- 03. Investimento, prazo e anexos -->
                     <div class="form_step">
                         <div class="step_head">
-                            <div class="step_number"><span>05</span></div>
+                            <div class="step_number"><span>03</span></div>
                             <div class="step_head_text">
-                                <h3>Design e referências</h3>
-                                <span class="step_head_sub">Principalmente para sites, landing pages e apps.</span>
+                                <h3>Investimento e prazo</h3>
+                                <span class="step_head_sub">Pra propormos algo que caiba na sua realidade.</span>
                             </div>
                         </div>
 
                         <div class="form_group form_group_full">
-                            <label>Você já possui identidade visual? <span class="opt">opcional</span></label>
-                            <div class="pill_group" data-group="identidade_visual" data-mode="single">
-                                <button type="button" class="pill">Sim</button>
-                                <button type="button" class="pill">Não</button>
-                                <button type="button" class="pill">Parcialmente</button>
-                            </div>
-                        </div>
-
-                        <div class="nested_block conditional_field" data-reveal-group="identidade_visual"
-                            data-reveal-value="Sim, Parcialmente" hidden>
-                            <span class="field_label">Você possui algum destes materiais?</span>
-                            <div class="pill_group" data-group="materiais_marca" data-mode="multi">
-                                <button type="button" class="pill">Logo</button>
-                                <button type="button" class="pill">Paleta de cores</button>
-                                <button type="button" class="pill">Tipografia</button>
-                                <button type="button" class="pill">Manual da marca</button>
-                                <button type="button" class="pill">Outros</button>
-                            </div>
-                            <div class="other_field" data-other-for="materiais_marca" hidden>
-                                <input type="text" name="materiais_marca_outro" placeholder="Quais outros materiais?">
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group form_group_full">
-                                <label for="referencias_links">Possui algum site, aplicativo ou projeto que sirva como referência? <span class="opt">opcional</span></label>
-                                <textarea id="referencias_links" name="referencias_links" rows="3"
-                                    placeholder="Cole aqui os links das referências"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group form_group_full">
-                                <label for="referencias_gosto">O que você gosta nessas referências? <span class="opt">opcional</span></label>
-                                <textarea id="referencias_gosto" name="referencias_gosto" rows="3"
-                                    placeholder="Ex.: visual, animações, organização, funcionalidades..."></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===================== 06. Orçamento e prazo ===================== -->
-                    <div class="form_step">
-                        <div class="step_head">
-                            <div class="step_number"><span>06</span></div>
-                            <div class="step_head_text">
-                                <h3>Orçamento e prazo</h3>
-                                <span class="step_head_sub">Pra entender o nível de solução que faz sentido.</span>
-                            </div>
-                        </div>
-
-                        <div class="form_group form_group_full">
-                            <label>Qual faixa de investimento você considera adequada para este projeto? <span class="opt">opcional</span></label>
+                            <label>Faixa de investimento <span class="opt">opcional</span></label>
                             <div class="pill_group" data-group="faixa_investimento" data-mode="single">
-                                <button type="button" class="pill">Ainda não tenho uma estimativa</button>
+                                <button type="button" class="pill">Ainda não sei</button>
                                 <button type="button" class="pill">Até R$ 2.000</button>
                                 <button type="button" class="pill">R$ 2.000 – R$ 5.000</button>
                                 <button type="button" class="pill">R$ 5.000 – R$ 10.000</button>
                                 <button type="button" class="pill">R$ 10.000 – R$ 20.000</button>
-                                <button type="button" class="pill">R$ 20.000 – R$ 50.000</button>
-                                <button type="button" class="pill">Acima de R$ 50.000</button>
+                                <button type="button" class="pill">Acima de R$ 20.000</button>
                             </div>
-                            <p class="field_hint">Essa informação nos ajuda a entender o nível de solução que faz sentido para o seu projeto.</p>
                         </div>
 
                         <div class="form_group form_group_full">
-                            <label>Quando você gostaria de iniciar o projeto? <span class="opt">opcional</span></label>
+                            <label>Quando quer começar? <span class="opt">opcional</span></label>
                             <div class="pill_group" data-group="inicio_projeto" data-mode="single">
                                 <button type="button" class="pill">Assim que possível</button>
-                                <button type="button" class="pill">Nas próximas 2 semanas</button>
-                                <button type="button" class="pill">No próximo mês</button>
-                                <button type="button" class="pill">Nos próximos 3 meses</button>
+                                <button type="button" class="pill">Em até 1 mês</button>
+                                <button type="button" class="pill">Em até 3 meses</button>
                                 <button type="button" class="pill">Ainda estou planejando</button>
-                            </div>
-                        </div>
-
-                        <div class="form_group form_group_full">
-                            <label>Existe uma data limite para o projeto estar pronto? <span class="opt">opcional</span></label>
-                            <div class="pill_group" data-group="data_limite_sim_nao" data-mode="single">
-                                <button type="button" class="pill">Sim</button>
-                                <button type="button" class="pill">Não</button>
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group conditional_field" data-reveal-group="data_limite_sim_nao"
-                                data-reveal-value="Sim" hidden>
-                                <label for="data_limite">Qual data?</label>
-                                <input type="date" id="data_limite" name="data_limite">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===================== 07. Infraestrutura existente ===================== -->
-                    <div class="form_step">
-                        <div class="step_head">
-                            <div class="step_number"><span>07</span></div>
-                            <div class="step_head_text">
-                                <h3>Infraestrutura existente</h3>
-                                <span class="step_head_sub">Opcional — só se você já tiver algo no ar.</span>
-                            </div>
-                        </div>
-
-                        <div class="form_group form_group_full">
-                            <label>Você já possui domínio?</label>
-                            <div class="pill_group" data-group="possui_dominio" data-mode="single">
-                                <button type="button" class="pill">Sim</button>
-                                <button type="button" class="pill">Não</button>
-                                <button type="button" class="pill">Não sei</button>
-                            </div>
-                        </div>
-
-                        <div class="form_group form_group_full">
-                            <label>Já possui hospedagem / servidor?</label>
-                            <div class="pill_group" data-group="possui_hospedagem" data-mode="single">
-                                <button type="button" class="pill">Sim</button>
-                                <button type="button" class="pill">Não</button>
-                                <button type="button" class="pill">Não sei</button>
-                            </div>
-                        </div>
-
-                        <div class="form_group form_group_full">
-                            <label>Já possui banco de dados ou sistema existente?</label>
-                            <div class="pill_group" data-group="possui_sistema" data-mode="single">
-                                <button type="button" class="pill">Sim</button>
-                                <button type="button" class="pill">Não</button>
-                                <button type="button" class="pill">Não sei</button>
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group form_group_full">
-                                <label for="integracoes">Existe alguma tecnologia ou sistema que precisa ser integrado ao novo projeto? <span class="opt">opcional</span></label>
-                                <input type="text" id="integracoes" name="integracoes"
-                                    placeholder="Ex.: ERP, CRM, API, sistema interno, gateway de pagamento...">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===================== 08. Informações adicionais ===================== -->
-                    <div class="form_step">
-                        <div class="step_head">
-                            <div class="step_number"><span>08</span></div>
-                            <div class="step_head_text">
-                                <h3>Informações adicionais</h3>
-                            </div>
-                        </div>
-
-                        <div class="form_row">
-                            <div class="form_group form_group_full">
-                                <label for="info_adicional">Existe algo importante que ainda não perguntamos? <span class="opt">opcional</span></label>
-                                <textarea id="info_adicional" name="info_adicional" rows="4"
-                                    placeholder="Conte qualquer informação adicional que possa nos ajudar a entender seu projeto."></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===================== 09. Anexos ===================== -->
-                    <div class="form_step">
-                        <div class="step_head">
-                            <div class="step_number"><span>09</span></div>
-                            <div class="step_head_text">
-                                <h3>Anexos</h3>
-                                <span class="step_head_sub">Briefing, wireframes, logo, referências — o que ajudar.</span>
                             </div>
                         </div>
 
@@ -531,20 +266,17 @@
                             <label class="file_drop" for="anexos">
                                 <input type="file" id="anexos" name="anexos[]" multiple
                                     accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg">
-                                <span class="file_drop_label">Clique para anexar arquivos</span>
-                                <span class="file_drop_hint">PDF, documentos, apresentações ou imagens · opcional</span>
+                                <span class="file_drop_label">Anexar briefing, logo ou referências</span>
+                                <span class="file_drop_hint">PDF, documentos ou imagens · opcional</span>
                             </label>
                             <div class="file_list" id="anexos_list"></div>
                         </div>
                     </div>
 
-                    <button class="btn_content btn_orcamento_submit" type="submit">
-                        Solicitar orçamento
-                    </button>
+                    <button class="btn_content btn_orcamento_submit" type="submit">Solicitar orçamento</button>
 
                     <p class="form_footer_note">
-                        Sem call de vendas para começar. Respondemos com escopo, prazo e
-                        investimento em até 48 horas.
+                        Sem call de vendas para começar. Respondemos com escopo e prazo em até 48 horas.
                     </p>
                 </form>
             </div>
@@ -597,12 +329,12 @@
                 <div class="footer_col">
                     <span class="mono_mark">{ navegação }</span>
                     <nav class="footer_nav">
-                        <a href="../home/index.html#home">Início</a>
-                        <a href="../home/index.html#about">Sobre</a>
-                        <a href="../home/index.html#solutions">Soluções</a>
-                        <a href="../home/index.html#process">Como Trabalhamos</a>
-                        <a href="../home/index.html#why_us">Por que nós</a>
-                        <a href="../home/index.html#faq">FAQ</a>
+                        <a href="../../../index.html">Início</a>
+                        <a href="../../../index.html#about">Sobre</a>
+                        <a href="../../../index.html#solutions">Soluções</a>
+                        <a href="../../../index.html#process">Como Trabalhamos</a>
+                        <a href="../../../index.htmll#why_us">Por que nós</a>
+                        <a href="../../../index.html#faq">FAQ</a>
                     </nav>
                 </div>
 
@@ -610,11 +342,11 @@
                 <div class="footer_col">
                     <span class="mono_mark">{ soluções }</span>
                     <nav class="footer_nav">
-                        <a href="../home/index.html#solutions">Sites Institucionais</a>
-                        <a href="../home/index.html#solutions">Landing Pages</a>
-                        <a href="../home/index.html#solutions">Sistemas Web</a>
-                        <a href="../home/index.html#solutions">Aplicativos</a>
-                        <a href="../home/index.html#solutions">SaaS</a>
+                        <p>Sites Institucionais</p>
+                        <p>Landing Pages</p>
+                        <p>Sistemas Web</p>
+                        <p>Aplicativos</p>
+                        <p>SaaS</p>
                     </nav>
                 </div>
 
@@ -634,7 +366,6 @@
                             <span>Três Lagoas, MS — atendimento remoto</span>
                         </li>
                     </ul>
-                    <a href="../home/index.html" class="footer_cta">Voltar</a>
                 </div>
             </div>
 
