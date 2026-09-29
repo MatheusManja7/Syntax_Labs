@@ -45,9 +45,3 @@ CREATE TABLE IF NOT EXISTS tentativas (
 ) ENGINE=InnoDB;
 
 select * from tentativas;
-
-DELETE FROM tentativas WHERE id > 0;
-
-SELECT id, usuario_id, LEFT(token_hash, 10) AS hash, expira_em, usado FROM password_resets;
-SELECT id, LEFT(token_hash, 10) AS hash, expira_em, usado, NOW() AS agora
-  FROM password_resets ORDER BY id DESC;
