@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     atualizado_em TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
+select * from usuarios; 
+
 -- Tokens de recuperação de senha
 CREATE TABLE IF NOT EXISTS password_resets (
     id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -31,3 +33,21 @@ CREATE TABLE IF NOT EXISTS password_resets (
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+select * from password_resets; 
+
+CREATE TABLE IF NOT EXISTS tentativas (
+    id        INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    tipo      VARCHAR(20) NOT NULL,
+    chave     CHAR(64)    NOT NULL,
+    criado_em DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_busca (tipo, chave, criado_em)
+) ENGINE=InnoDB;
+
+select * from tentativas;
+
+DELETE FROM tentativas WHERE id > 0;
+
+SELECT id, usuario_id, LEFT(token_hash, 10) AS hash, expira_em, usado FROM password_resets;
+SELECT id, LEFT(token_hash, 10) AS hash, expira_em, usado, NOW() AS agora
+  FROM password_resets ORDER BY id DESC;
