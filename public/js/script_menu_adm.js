@@ -9,7 +9,7 @@ const logoutBtn = document.getElementById('logout_btn');
 const temMenuMobile = Boolean(hamburger && menu && overlay);
 
 // ----- Marca como ativo o link da página atual -----
-const paginaAtual = window.location.pathname.split('/').pop() || 'home_adm.html';
+const paginaAtual = window.location.pathname.split('/').pop() || 'home_adm.php';
 document.querySelectorAll('#menu a').forEach((link) => {
     if (link.getAttribute('href') === paginaAtual) {
         link.classList.add('active');
@@ -67,8 +67,8 @@ if (temMenuMobile && navbarActions) {
             if (logoutBtn) menu.appendChild(logoutBtn);
         } else {
             // Desktop: volta para a direita (sair, depois o perfil)
-            if (logoutBtn) navbarActions.insertBefore(logoutBtn, hamburger);
             if (profileIcon) navbarActions.insertBefore(profileIcon, hamburger);
+            if (logoutBtn) navbarActions.insertBefore(logoutBtn, hamburger);
             fecharMenu();
         }
     }
