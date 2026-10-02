@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/../../helpers/auth_guard.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,8 +27,8 @@
         <nav class="menu" id="menu">
             <a href="orcamentos.html">orçamentos</a>
             <a href="mensagens.html">mensagens</a>
-            <a href="cadastro_adm.html">novo adm</a>
-            <a href="listagem_adm.html">admins</a>
+            <a href="cadastro_adm.php">novo adm</a>
+            <a href="listagem_adm.php">admins</a>
         </nav>
 
         <div class="navbar_actions" id="navbar_actions">
@@ -58,7 +59,7 @@
 
         <div class="box_info_cad_adm">
 
-            <form action="" method="post" class="form_main" id="form_cad_adm" novalidate>
+            <form method="post" class="form_main" id="form_cad_adm" novalidate>
 
                 <!-- Decoração interna do card -->
                 <div class="form_deco" aria-hidden="true">
@@ -83,7 +84,7 @@
                     </svg>
                     <input type="text" class="inputField" id="nome" name="nome"
                            placeholder="Nome completo" autocomplete="name"
-                           maxlength="100" aria-label="Nome completo" required>
+                           maxlength="100" aria-label="Nome completo">
                 </div>
 
                 <!-- Email -> usuarios.email (VARCHAR 150, UNIQUE) -->
@@ -93,7 +94,7 @@
                     </svg>
                     <input type="email" class="inputField" id="email" name="email"
                            placeholder="E-mail" autocomplete="email"
-                           maxlength="150" aria-label="E-mail" required>
+                           maxlength="150" aria-label="E-mail">
                 </div>
 
                 <!-- Senha -> o back-end gera usuarios.senha_hash -->
@@ -102,8 +103,7 @@
                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
                     </svg>
                     <input type="password" class="inputField" id="senha" name="senha"
-                           placeholder="Senha (mín. 8 caracteres)" autocomplete="new-password"
-                           minlength="8" aria-label="Senha" required>
+                           placeholder="Senha (mín. 8 caracteres)" autocomplete="new-password" aria-label="Senha">
                 </div>
 
                 <!-- Confirmar senha (só validação no front) -->
@@ -112,8 +112,7 @@
                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
                     </svg>
                     <input type="password" class="inputField" id="confirma_senha" name="confirma_senha"
-                           placeholder="Confirmar senha" autocomplete="new-password"
-                           minlength="8" aria-label="Confirmar senha" required>
+                           placeholder="Confirmar senha" autocomplete="new-password" aria-label="Confirmar senha">
                 </div>
 
                 <p class="form_msg" id="cad_adm_msg" role="alert" hidden></p>

@@ -24,8 +24,8 @@
         <nav class="menu" id="menu">
             <a href="orcamentos.html">orçamentos</a>
             <a href="mensagens.html">mensagens</a>
-            <a href="cadastro_adm.html">novo adm</a>
-            <a href="listagem_adm.html">admins</a>
+            <a href="cadastro_adm.php">novo adm</a>
+            <a href="listagem_adm.php">admins</a>
         </nav>
 
         <div class="navbar_actions" id="navbar_actions">
@@ -89,7 +89,7 @@
                 </a>
 
                 <!-- Card_3 - Cadastro de Adms  -->
-                <a href="cadastro_adm.html" class="cards">
+                <a href="cadastro_adm.php" class="cards">
                     <span class="card_deco" aria-hidden="true"><i class="bi bi-person-plus"></i></span>
                     <div class="card_top">
                         <span class="card_icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
@@ -101,7 +101,7 @@
                 </a>
 
                 <!-- Card_4 - Lista de Adms  -->
-                <a href="listagem_adm.html" class="cards">
+                <a href="listagem_adm.php" class="cards">
                     <span class="card_deco" aria-hidden="true"><i class="bi bi-people"></i></span>
                     <div class="card_top">
                         <span class="card_icon"><i class="bi bi-people" aria-hidden="true"></i></span>

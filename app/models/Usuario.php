@@ -80,4 +80,48 @@ class Usuario
             ':id'   => $id,
         ]);
     }
+    
+    public function criar(string $nome, string $email, string $senha): int
+    {
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO usuarios (nome, email, senha_hash)
+            VALUES (:nome, :email, :hash)'
+        );
+        $stmt->execute([
+            ':nome'  => $nome,
+            ':email' => $email,
+            ':hash'  => password_hash($senha, PASSWORD_DEFAULT),
+        ]);
+
+        return (int) $this->pdo->lastInsertId();
+    }
+
+    public function listar(): array
+    {
+        return $this->pdo->query(
+            'SELECT id, nome, email, ativo, criado_em FROM usuarios ORDER BY nome'
+        )->fetchAll();
+    }
+
+    public function existe(int $id): bool
+    {
+        $stmt = $this->pdo->prepare('SELECT 1 FROM usuarios WHERE id = :id');
+        $stmt->execute([':id' => $id]);
+
+        return $stmt->fetchColumn() !== false;
+    }
+
+    public function alterarStatus(int $id, bool $ativo): void
+    {
+        $stmt = $this->pdo->prepare('UPDATE usuarios SET ativo = :ativo WHERE id = :id');
+        $stmt->bindValue(':ativo', $ativo ? 1 : 0, PDO::PARAM_INT);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function excluir(int $id): void
+    {
+        $stmt = $this->pdo->prepare('DELETE FROM usuarios WHERE id = :id');
+        $stmt->execute([':id' => $id]);
+    }
 }

@@ -64,6 +64,7 @@ class AuthController
 
         $_SESSION['usuario_id']   = $usuario['id'];
         $_SESSION['usuario_nome'] = $usuario['nome'];
+        $_SESSION['ultima_atividade'] = time();
 
         $this->json(200, ['sucesso' => true, 'mensagem' => 'Login realizado com sucesso.']);
     }
@@ -161,7 +162,8 @@ class AuthController
 
         if (strlen($senha) < 8
             || !preg_match('/[A-Z]/', $senha)
-            || !preg_match('/[0-9]/', $senha)) {
+            || !preg_match('/[0-9]/', $senha)
+            || strlen($senha) > 72) {
             $this->json(422, [
                 'sucesso'  => false,
                 'mensagem' => 'A senha deve ter no mínimo 8 caracteres, 1 letra maiúscula e 1 número.'
@@ -193,7 +195,6 @@ class AuthController
         $this->json(200, ['sucesso' => true, 'mensagem' => 'Senha atualizada com sucesso.']);
     }
 
-    // Coloque junto do método json(), no final da classe
     private function lerToken(array $dados): ?string
     {
         $token = trim($dados['token'] ?? '');
