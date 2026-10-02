@@ -1,0 +1,561 @@
+/* ---------- Seção (sobrescreve o `section` do CSS global) ---------- */
+.section_list_adm {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 150px 24px 60px;
+    background-color: var(--preto);
+}
+
+/* Fundo da home */
+.section_list_adm .bg_effect {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(560px circle at 80% 45%, rgba(137, 242, 0, .05), transparent 65%),
+        radial-gradient(420px circle at 14% 20%, rgba(137, 242, 0, .05), transparent 60%);
+}
+
+.section_list_adm .bg_effect::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(245, 245, 245, 0.060) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 245, 245, 0.060) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
+}
+
+.box_info_list_adm {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ---------- Botão voltar (navbar) ---------- */
+.btn_voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 14px 0 10px;
+    font-family: var(--font-corpo);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--cinza-text);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background-color: transparent;
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn_voltar i {
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.btn_voltar:hover,
+.btn_voltar:focus-visible {
+    color: var(--color-logo);
+    border-color: rgba(137, 242, 0, 0.35);
+    background-color: rgba(137, 242, 0, 0.08);
+}
+
+.btn_voltar:hover i,
+.btn_voltar:focus-visible i {
+    transform: translateX(-4px);
+}
+
+.btn_voltar:focus-visible {
+    outline: 2px solid var(--color-logo);
+    outline-offset: 3px;
+}
+
+/* ---------- Cabeçalho da listagem ---------- */
+.list_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.list_header_info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.list_header_text h3 {
+    margin: 0 0 4px;
+}
+
+.list_header_text p {
+    opacity: 0.65;
+}
+
+.list_icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    color: var(--color-logo);
+    background-color: rgba(137, 242, 0, 0.08);
+    border: 1px solid rgba(137, 242, 0, 0.25);
+}
+
+.list_icon i {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.list_tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Busca */
+.search_box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search_box i {
+    position: absolute;
+    left: 14px;
+    font-size: 0.9rem;
+    color: var(--cinza-text);
+    pointer-events: none;
+}
+
+.search_field {
+    width: 280px;
+    max-width: 100%;
+    height: 42px;
+    padding: 0 14px 0 38px;
+    background-color: rgba(52, 52, 52, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: var(--branco);
+    font-family: var(--font-corpo);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.search_field::placeholder {
+    color: var(--cinza-text);
+}
+
+.search_field:focus {
+    outline: none;
+    border-color: var(--color-logo);
+    background-color: var(--cinza);
+}
+
+/* Botão novo ADM */
+.btn_novo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 10px;
+    background-color: var(--color-logo);
+    color: var(--cinza-text-button);
+    font-family: var(--font-corpo);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn_novo:hover,
+.btn_novo:focus-visible {
+    background-color: var(--branco);
+    color: var(--preto);
+}
+
+.btn_novo:focus-visible {
+    outline: 2px solid var(--color-logo);
+    outline-offset: 3px;
+}
+
+/* ---------- Tabela ---------- */
+.table_wrap {
+    background-color: var(--cinza);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table_wrap[hidden] {
+    display: none;
+}
+
+.adm_table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.adm_table th {
+    padding: 14px 20px;
+    text-align: left;
+    font-family: var(--font-corpo);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cinza-text);
+    background-color: rgba(0, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.adm_table td {
+    padding: 14px 20px;
+    vertical-align: middle;
+    font-size: 0.9rem;
+    color: var(--branco);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.adm_table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.adm_table tbody tr:hover {
+    background-color: rgba(137, 242, 0, 0.05);
+}
+
+.adm_table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.adm_table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Larguras das colunas */
+.adm_table th:nth-child(1) {
+    width: 30%;
+}
+
+.adm_table th:nth-child(2) {
+    width: 28%;
+}
+
+.adm_table th:nth-child(3) {
+    width: 12%;
+}
+
+.adm_table th:nth-child(4) {
+    width: 14%;
+}
+
+.adm_table th:nth-child(5) {
+    width: 16%;
+}
+
+.col_acoes {
+    text-align: right !important;
+}
+
+/* Usuário (avatar + nome) */
+.adm_user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.adm_avatar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: rgba(137, 242, 0, 0.08);
+    border: 1px solid rgba(137, 242, 0, 0.25);
+    color: var(--color-logo);
+    font-family: var(--font-titulo);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.adm_nome,
+.adm_email {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.adm_nome {
+    font-weight: 600;
+}
+
+.adm_email,
+.adm_data {
+    color: var(--cinza-text);
+}
+
+/* Status */
+.adm_status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-family: var(--font-corpo);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-logo);
+    background-color: rgba(137, 242, 0, 0.1);
+    border: 1px solid rgba(137, 242, 0, 0.3);
+}
+
+tr.inativo .adm_status {
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    border-color: rgba(255, 107, 107, 0.3);
+}
+
+tr.inativo .adm_user,
+tr.inativo .adm_email,
+tr.inativo .adm_data {
+    opacity: 0.55;
+}
+
+/* Ações */
+.adm_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.adm_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: var(--branco);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.adm_btn_toggle:hover,
+.adm_btn_toggle:focus-visible {
+    color: var(--color-logo);
+    border-color: rgba(137, 242, 0, 0.4);
+    background-color: rgba(137, 242, 0, 0.08);
+}
+
+.adm_btn_delete:hover,
+.adm_btn_delete:focus-visible {
+    color: #ff6b6b;
+    border-color: rgba(255, 107, 107, 0.4);
+    background-color: rgba(255, 107, 107, 0.08);
+}
+
+.adm_btn:focus-visible {
+    outline: 2px solid var(--color-logo);
+    outline-offset: 3px;
+}
+
+.adm_btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ---------- Mensagens e estado vazio ---------- */
+.list_msg {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ff6b6b;
+}
+
+.list_msg.sucesso {
+    color: var(--color-logo);
+}
+
+.list_msg[hidden],
+.list_empty[hidden] {
+    display: none;
+}
+
+.list_empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 60px 20px;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    color: var(--cinza-text);
+}
+
+.list_empty i {
+    font-size: 2.2rem;
+}
+
+.list_empty p {
+    color: var(--cinza-text);
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 900px) {
+    .section_list_adm {
+        padding: 130px 24px 50px;
+    }
+
+    .list_header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .list_tools {
+        width: 100%;
+    }
+
+    .search_box {
+        flex: 1;
+    }
+
+    .search_field {
+        width: 100%;
+    }
+}
+
+/* Tabela vira blocos empilhados */
+@media (max-width: 760px) {
+
+    .adm_table,
+    .adm_table tbody,
+    .adm_table tr,
+    .adm_table td {
+        display: block;
+        width: 100%;
+    }
+
+    .adm_table {
+        table-layout: auto;
+    }
+
+    /* Cabeçalho some (cada campo ganha seu rótulo) */
+    .adm_table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+
+    .adm_table tbody tr {
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .adm_table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    .adm_table td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 8px 18px;
+        border-bottom: none;
+    }
+
+    .adm_table td::before {
+        content: attr(data-label);
+        flex-shrink: 0;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--cinza-text);
+    }
+
+    /* Nome e ações não precisam de rótulo */
+    .adm_table td[data-label="Administrador"]::before,
+    .adm_table td[data-label="Ações"]::before {
+        display: none;
+    }
+
+    .adm_table td[data-label="Administrador"] {
+        justify-content: flex-start;
+    }
+
+    .adm_table td[data-label="E-mail"] .adm_email {
+        text-align: right;
+    }
+}
+
+@media (max-width: 600px) {
+    .section_list_adm {
+        padding: 130px 16px 40px;
+    }
+
+    .menu .btn_voltar {
+        align-self: flex-start;
+        margin: 8px 0;
+    }
+
+    .list_icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .list_icon i {
+        font-size: 22px;
+    }
+
+    .list_header_info {
+        gap: 14px;
+    }
+
+    .list_tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 420px) {
+    .section_list_adm {
+        padding: 125px 12px 32px;
+    }
+}

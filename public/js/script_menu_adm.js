@@ -5,6 +5,7 @@ const overlay = document.getElementById('menu_overlay');
 const navbarActions = document.getElementById('navbar_actions');
 const profileIcon = document.getElementById('profile_icon');
 const logoutBtn = document.getElementById('logout_btn');
+const voltarBtn = document.getElementById('btn_voltar');
 
 const temMenuMobile = Boolean(hamburger && menu && overlay);
 
@@ -56,19 +57,21 @@ if (temMenuMobile) {
     hamburger.style.display = 'none';
 }
 
-// ----- Move perfil e "sair" entre o navbar e o menu mobile -----
+// ----- Move voltar, perfil e "sair" entre o navbar e o menu mobile -----
 if (temMenuMobile && navbarActions) {
     const mediaQuery = window.matchMedia('(max-width: 900px)');
 
     function reorganizarNavbar(e) {
         if (e.matches) {
-            // Mobile: perfil no topo do menu, "sair" no fim
+            // Mobile: voltar e perfil no topo do menu, "sair" no fim
             if (profileIcon) menu.insertBefore(profileIcon, menu.firstChild);
+            if (voltarBtn) menu.insertBefore(voltarBtn, menu.firstChild);
             if (logoutBtn) menu.appendChild(logoutBtn);
         } else {
-            // Desktop: volta para a direita (sair, depois o perfil)
-            if (profileIcon) navbarActions.insertBefore(profileIcon, hamburger);
+            // Desktop: volta para a direita (voltar, sair, perfil)
             if (logoutBtn) navbarActions.insertBefore(logoutBtn, hamburger);
+            if (voltarBtn) navbarActions.insertBefore(voltarBtn, hamburger);
+            if (profileIcon) navbarActions.insertBefore(profileIcon, hamburger);
             fecharMenu();
         }
     }
