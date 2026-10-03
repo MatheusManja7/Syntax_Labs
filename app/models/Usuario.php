@@ -124,4 +124,22 @@ class Usuario
         $stmt = $this->pdo->prepare('DELETE FROM usuarios WHERE id = :id');
         $stmt->execute([':id' => $id]);
     }
+
+    public function atualizarNome(int $id, string $nome): void
+    {
+        $stmt = $this->pdo->prepare('UPDATE usuarios SET nome = :nome WHERE id = :id');
+        $stmt->execute([':nome' => $nome, ':id' => $id]);
+    }
+
+    /** Confere a senha atual de um usuário ativo, sem expor o hash. */
+    public function senhaConfere(int $id, string $senha): bool
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT senha_hash FROM usuarios WHERE id = :id AND ativo = 1 LIMIT 1'  
+        );
+        $stmt->execute([':id' => $id]);
+        $hash = $stmt->fetchColumn();
+
+        return $hash !== false && password_verify($senha, $hash);
+    }
 }

@@ -1,4 +1,4 @@
-.section_cad_adm {
+.section_perfil_adm {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -12,7 +12,7 @@
 }
 
 /* Fundo da home */
-.section_cad_adm .bg_effect {
+.section_perfil_adm .bg_effect {
     position: absolute;
     inset: 0;
     z-index: 0;
@@ -22,7 +22,7 @@
         radial-gradient(420px circle at 14% 20%, rgba(137, 242, 0, .05), transparent 60%);
 }
 
-.section_cad_adm .bg_effect::before {
+.section_perfil_adm .bg_effect::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -34,7 +34,7 @@
     mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
 }
 
-.box_info_cad_adm {
+.box_info_perfil_adm {
     position: relative;
     z-index: 1;
     width: 100%;
@@ -261,7 +261,7 @@
     border-bottom-color: #ff6b6b;
 }
 
-#button {
+.form_button {
     z-index: 2;
     position: relative;
     width: 100%;
@@ -280,11 +280,11 @@
     transition: color 0.3s ease;
 }
 
-#button:hover {
+.form_button:hover {
     color: var(--preto);
 }
 
-#button::after {
+.form_button::after {
     content: "";
     background: var(--branco);
     position: absolute;
@@ -297,11 +297,11 @@
     transition: all 0.5s;
 }
 
-#button:hover::after {
+.form_button:hover::after {
     transform: skewX(-45deg) scale(1, 1);
 }
 
-#button:disabled {
+.form_button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
@@ -325,29 +325,35 @@
     color: var(--color-logo);
 }
 
-.form_msg {
-    color: #ff6b6b;
-    font-size: 0.85rem;
-    text-align: center;
-    margin: 0.5rem 0;
-}
-
-.form_msg.sucesso {
-    color: var(--color-logo);
-}
-
-.form_msg[hidden] {
-    display: none;
-}
-
-#button:disabled {
+.form_button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
 
+/* Dois cards empilhados */
+.box_info_perfil_adm {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.box_info_perfil_adm .form_main {
+    min-height: auto;
+}
+
+/* E-mail somente leitura */
+.inputField[readonly] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.inputField[readonly]:focus {
+    border-bottom-color: var(--cinza-text);
+}
+
 /* ---------- Responsividade ---------- */
 @media (max-width: 900px) {
-    .section_cad_adm {
+    .section_perfil_adm {
         padding: 90px 24px 50px;
     }
 
@@ -358,7 +364,7 @@
 }
 
 @media (max-width: 600px) {
-    .section_cad_adm {
+    .section_perfil_adm {
         padding: 84px 16px 40px;
     }
 
@@ -391,14 +397,14 @@
         font-size: .9em;
     }
 
-    #button {
+    .form_button {
         height: 2.7em;
         font-size: .85em;
     }
 }
 
 @media (max-width: 420px) {
-    .section_cad_adm {
+    .section_perfil_adm {
         padding: 80px 12px 32px;
     }
 
@@ -416,7 +422,7 @@
         height: 14px;
     }
 
-    #button {
+    .form_button {
         height: 2.5em;
         letter-spacing: 0.5px;
     }

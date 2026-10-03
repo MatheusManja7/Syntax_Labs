@@ -46,48 +46,6 @@
     gap: 24px;
 }
 
-/* ---------- Botão voltar (navbar) ---------- */
-.btn_voltar {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    height: 36px;
-    padding: 0 14px 0 10px;
-    font-family: var(--font-corpo);
-    font-size: 0.85rem;
-    font-weight: 600;
-    white-space: nowrap;
-    color: var(--cinza-text);
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    background-color: transparent;
-    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.btn_voltar i {
-    font-size: 1.1rem;
-    line-height: 1;
-    transition: transform 0.3s ease;
-}
-
-.btn_voltar:hover,
-.btn_voltar:focus-visible {
-    color: var(--color-logo);
-    border-color: rgba(137, 242, 0, 0.35);
-    background-color: rgba(137, 242, 0, 0.08);
-}
-
-.btn_voltar:hover i,
-.btn_voltar:focus-visible i {
-    transform: translateX(-4px);
-}
-
-.btn_voltar:focus-visible {
-    outline: 2px solid var(--color-logo);
-    outline-offset: 3px;
-}
-
 /* ---------- Cabeçalho da listagem ---------- */
 .list_header {
     display: flex;
@@ -434,6 +392,84 @@ tr.inativo .adm_data {
     color: var(--cinza-text);
 }
 
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modalOverlay[hidden] {
+    display: none;
+}
+
+.modalBox {
+    width: 380px;
+    max-width: 90%;
+    padding: 1.75rem;
+    border-radius: 14px;
+    background: var(--cinza);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+.modal_titulo {
+    font-family: var(--font-titulo);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal_texto {
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+}
+
+.modal_botoes {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.modal_btn {
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: var(--branco);
+    cursor: pointer;
+}
+
+.modal_btn_ok {
+    background: var(--color-logo);
+    border-color: var(--color-logo);
+    color: var(--cinza-text-button);
+}
+
+.modal_btn_ok.perigo {
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: #fff;
+}
+
+.list_msg {
+    text-align: center;
+    margin: 0.75rem 0;
+    color: #ff6b6b;
+}
+
+.list_msg.sucesso {
+    color: var(--color-logo);
+}
+
+.adm_voce {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
 /* ---------- Responsividade ---------- */
 @media (max-width: 900px) {
     .section_list_adm {
@@ -528,11 +564,6 @@ tr.inativo .adm_data {
 @media (max-width: 600px) {
     .section_list_adm {
         padding: 130px 16px 40px;
-    }
-
-    .menu .btn_voltar {
-        align-self: flex-start;
-        margin: 8px 0;
     }
 
     .list_icon {

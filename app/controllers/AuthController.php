@@ -95,7 +95,7 @@ class AuthController
         $chaveEmail = RateLimit::chave($email);
         $chaveIp    = RateLimit::chave($_SERVER['REMOTE_ADDR'] ?? '0.0.0.0');
 
-        if ($rl->excedeu('recuperacao', $chaveEmail, 3, 60) || $rl->excedeu('recuperacao', $chaveIp, 10, 60)) {
+        if ($rl->excedeu('recuperacao', $chaveEmail, 5, 60) || $rl->excedeu('recuperacao', $chaveIp, 10, 60)) {
             $this->json(429, [
                 'sucesso'  => false,
                 'mensagem' => 'Muitos pedidos. Aguarde um pouco e tente novamente.'

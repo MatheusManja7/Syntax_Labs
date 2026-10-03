@@ -22,18 +22,42 @@
         </a>
 
         <nav class="menu" id="menu">
+            <!-- Só aparecem no mobile -->
+            <a href="perfil_adm.php" class="profile_icon menu_mobile_only" aria-label="Meu perfil">
+                <i class="bi bi-person" aria-hidden="true"></i>
+            </a>
+
+            <a href="home_adm.php">home</a>
             <a href="orcamentos.html">orçamentos</a>
             <a href="mensagens.html">mensagens</a>
             <a href="cadastro_adm.php">novo adm</a>
             <a href="listagem_adm.php">admins</a>
+
+            <button type="button" class="menu_mobile_only menu_logout" data-logout>
+                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                <span>sair</span>
+            </button>
         </nav>
 
         <div class="navbar_actions" id="navbar_actions">
-            <a href="../auth/login.html" class="btn" id="logout_btn">sair</a>
+            <div class="profile_menu" id="profile_menu">
+                <button type="button" class="profile_icon" id="profile_icon"
+                        aria-label="Menu do perfil" aria-haspopup="true"
+                        aria-expanded="false" aria-controls="profile_dropdown">
+                    <i class="bi bi-person" aria-hidden="true"></i>
+                </button>
 
-            <a href="perfil_adm.html" class="profile_icon" id="profile_icon" aria-label="Meu perfil">
-                <i class="bi bi-person" aria-hidden="true"></i>
-            </a>
+                <div class="profile_dropdown" id="profile_dropdown" role="menu" hidden>
+                    <a href="perfil_adm.php" role="menuitem">
+                        <i class="bi bi-person-gear" aria-hidden="true"></i>
+                        <span>Perfil</span>
+                    </a>
+                    <button type="button" data-logout role="menuitem">
+                        <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                        <span>Sair</span>
+                    </button>
+                </div>
+            </div>
 
             <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
                 <span></span>
