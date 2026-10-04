@@ -32,7 +32,7 @@
 
             <a href="home_adm.php">home</a>
             <a href="orcamentos.html">orçamentos</a>
-            <a href="mensagens.html">mensagens</a>
+            <a href="mensagens.php">mensagens</a>
             <a href="cadastro_adm.php">novo adm</a>
             <a href="listagem_adm.php">admins</a>
 
@@ -87,9 +87,6 @@
 
                 <!-- Cabeçalho -->
                 <div class="form_header">
-                    <div class="form_icon" aria-hidden="true">
-                        <i class="bi bi-person-plus"></i>
-                    </div>
                     <div class="form_header_text">
                         <h3>Novo ADM</h3>
                         <p>Cadastre um novo administrador</p>

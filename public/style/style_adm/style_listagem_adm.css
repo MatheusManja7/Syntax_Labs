@@ -69,24 +69,6 @@
     opacity: 0.65;
 }
 
-.list_icon {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    color: var(--color-logo);
-    background-color: rgba(137, 242, 0, 0.08);
-    border: 1px solid rgba(137, 242, 0, 0.25);
-}
-
-.list_icon i {
-    font-size: 26px;
-    line-height: 1;
-}
-
 .list_tools {
     display: flex;
     align-items: center;
@@ -565,16 +547,7 @@ tr.inativo .adm_data {
     .section_list_adm {
         padding: 130px 16px 40px;
     }
-
-    .list_icon {
-        width: 48px;
-        height: 48px;
-    }
-
-    .list_icon i {
-        font-size: 22px;
-    }
-
+    
     .list_header_info {
         gap: 14px;
     }

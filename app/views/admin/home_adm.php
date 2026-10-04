@@ -29,7 +29,7 @@
 
             <a href="home_adm.php">home</a>
             <a href="orcamentos.html">orçamentos</a>
-            <a href="mensagens.html">mensagens</a>
+            <a href="mensagens.php">mensagens</a>
             <a href="cadastro_adm.php">novo adm</a>
             <a href="listagem_adm.php">admins</a>
 
@@ -101,7 +101,7 @@
                 </a>
 
                 <!-- Card_2 - Mensagens -->
-                <a href="mensagens.html" class="cards">
+                <a href="mensagens.php" class="cards">
                     <span class="card_deco" aria-hidden="true"><i class="bi bi-envelope"></i></span>
                     <div class="card_top">
                         <span class="card_icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>

@@ -32,7 +32,7 @@
 
             <a href="home_adm.php">home</a>
             <a href="orcamentos.html">orçamentos</a>
-            <a href="mensagens.html">mensagens</a>
+            <a href="mensagens.php">mensagens</a>
             <a href="cadastro_adm.php">novo adm</a>
             <a href="listagem_adm.php">admins</a>
 
@@ -82,9 +82,6 @@
             <!-- Cabeçalho da listagem -->
             <div class="list_header">
                 <div class="list_header_info">
-                    <div class="list_icon" aria-hidden="true">
-                        <i class="bi bi-people"></i>
-                    </div>
                     <div class="list_header_text">
                         <h3>Administradores</h3>
                         <p><span id="list_count">0</span> cadastrados</p>

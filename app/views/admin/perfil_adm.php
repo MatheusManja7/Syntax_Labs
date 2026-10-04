@@ -38,7 +38,7 @@ $h = fn (string $v) => htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
 
             <a href="home_adm.php">home</a>
             <a href="orcamentos.html">orçamentos</a>
-            <a href="mensagens.html">mensagens</a>
+            <a href="mensagens.php">mensagens</a>
             <a href="cadastro_adm.php">novo adm</a>
             <a href="listagem_adm.php">admins</a>
 

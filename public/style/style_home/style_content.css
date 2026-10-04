@@ -241,6 +241,54 @@
     transition: all 0.5s;
 }
 
+/* Honeypot: fora da tela, sem display:none (alguns robôs ignoram campos display:none) */
+.hp_field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.box_form textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--preto);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    padding: 12px 14px;
+}
+
+.box_form textarea:focus {
+    background-color: var(--branco);
+    border-color: var(--color-logo);
+}
+
+.form_feedback {
+    margin: 12px 0 0;
+    font-size: 0.9rem;
+    color: #ff6b6b;
+}
+
+.form_feedback.sucesso {
+    color: var(--color-logo);
+}
+
+.form_feedback[hidden] {
+    display: none;
+}
+
+.btn_content:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 /* Responsividade da Section  */
 @media (max-width: 1300px) {
     .content {
