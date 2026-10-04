@@ -240,6 +240,7 @@ p {
 }
 
 .card_icon {
+    position: relative;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -261,6 +262,26 @@ p {
 .cards:hover .card_icon {
     background-color: var(--color-logo);
     color: var(--cinza-text-button);
+}
+
+.card_badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #ff4d4d;
+    border: 2px solid var(--cinza);
+    color: #fff;
+    font-family: var(--font-corpo);
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
 }
 
 /* Saudação */

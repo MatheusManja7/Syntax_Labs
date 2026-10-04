@@ -86,4 +86,11 @@ class Mensagem
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    public function contarNaoLidas(): int
+    {
+        return (int) $this->pdo->query(
+            'SELECT COUNT(*) FROM mensagens WHERE lida = 0 AND arquivada = 0'
+        )->fetchColumn();
+    }
 }

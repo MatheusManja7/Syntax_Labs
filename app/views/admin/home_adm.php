@@ -1,4 +1,15 @@
-<?php require_once __DIR__ . '/../../helpers/auth_guard.php'; ?>
+<?php
+require_once __DIR__ . '/../../helpers/auth_guard.php';
+require_once __DIR__ . '/../../models/Mensagem.php';
+
+try {
+    $novasMensagens = (new Mensagem())->contarNaoLidas();
+} catch (Throwable $e) {
+    error_log('Erro ao contar mensagens: ' . $e->getMessage());
+    $novasMensagens = 0;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -104,7 +115,16 @@
                 <a href="mensagens.php" class="cards">
                     <span class="card_deco" aria-hidden="true"><i class="bi bi-envelope"></i></span>
                     <div class="card_top">
-                        <span class="card_icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>
+                        <span class="card_icon">
+                            <i class="bi bi-envelope" aria-hidden="true"></i>
+                            <?php if ($novasMensagens > 0): ?>
+                                <span class="card_badge"
+                                    aria-label="<?= $novasMensagens ?> mensagens novas"
+                                    title="<?= $novasMensagens ?> mensagens novas">
+                                    <?= $novasMensagens > 99 ? '99+' : $novasMensagens ?>
+                                </span>
+                            <?php endif; ?>
+                        </span>
                         <div class="card_text">
                             <h3>Mensagens</h3>
                             <p>Leia as mensagens enviadas pelo site.</p>
