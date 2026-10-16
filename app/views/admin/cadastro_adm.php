@@ -31,7 +31,7 @@
             </a>
 
             <a href="home_adm.php">home</a>
-            <a href="orcamentos.html">orçamentos</a>
+            <a href="orcamentos.php">orçamentos</a>
             <a href="mensagens.php">mensagens</a>
             <a href="cadastro_adm.php">novo adm</a>
             <a href="listagem_adm.php">admins</a>

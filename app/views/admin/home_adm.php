@@ -39,7 +39,7 @@ try {
             </a>
 
             <a href="home_adm.php">home</a>
-            <a href="orcamentos.html">orçamentos</a>
+            <a href="orcamentos.php">orçamentos</a>
             <a href="mensagens.php">mensagens</a>
             <a href="cadastro_adm.php">novo adm</a>
             <a href="listagem_adm.php">admins</a>
@@ -100,7 +100,7 @@ try {
             <!-- Grade dos Cards  -->
             <div class="grid_container">
                 <!-- Card_1 - Orçamento  -->
-                <a href="orcamentos.html" class="cards">
+                <a href="orcamentos.php" class="cards">
                     <span class="card_deco" aria-hidden="true"><i class="bi bi-file-earmark-text"></i></span>
                     <div class="card_top">
                         <span class="card_icon"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></span>
