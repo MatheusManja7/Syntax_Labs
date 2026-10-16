@@ -224,11 +224,21 @@
         linhaDetalhe('Objetivo', o.objetivos);
         linhaDetalhe('Ideia', o.descricao);
         linhaDetalhe('Já possui algo', o.possui);
-        linhaDetalhe('Referências', o.referencias);          // texto puro, sem link
+        linhaDetalhe('Referências', o.referencias);       
         linhaDetalhe('Investimento', o.faixa);
         linhaDetalhe('Início desejado', o.inicio);
-        // BACK-END: cada anexo vira um link de download protegido (api_guard)
-        linhaDetalhe('Anexos', (o.anexos || []).map((a) => a.nome));
+        if (o.anexos && o.anexos.length) {
+            mDetalhes.appendChild(el('dt', '', 'Anexos'));
+            const dd = el('dd');
+            o.anexos.forEach((a) => {
+                const link = el('a', '', a.nome);
+                link.href = API_BASE + 'baixar_anexo_orcamento.php?id=' + encodeURIComponent(a.id);
+                link.target = '_blank';
+                link.rel = 'noopener';
+                dd.append(link, document.createElement('br'));
+            });
+            mDetalhes.appendChild(dd);
+        }
     }
 
     /* ---------- Modal: proposta ---------- */
@@ -346,29 +356,52 @@
         btnSalvar.disabled = false;
     });
 
-    btnEnviar.addEventListener('click', () => {
+    btnEnviar.addEventListener('click', async () => {
         if (!atual) return;
+        const o = atual;
 
         const p = lerForm();
         const erro = validarEnvio(p);
         if (erro) return msgModal(erro);
 
-        const reenvio = atual.status === 'enviado';
-        atual.proposta = p;
-        atual.status = 'enviado';
-        atual.enviada_em = new Date().toISOString();
-        // BACK-END: gerar token, enviar e-mail ao cliente e invalidar o link anterior (reenvio)
+        const reenvio = o.status === 'enviado';
+        const rotulo = btnEnviar.querySelector('span');
+        const textoOriginal = rotulo.textContent;
 
-        const email = atual.email;
-        fecharModal();
-        filtro = 'enviado';
-        tabs.forEach((t) => {
-            const ativa = t.dataset.filtro === 'enviado';
-            t.classList.toggle('active', ativa);
-            t.setAttribute('aria-selected', String(ativa));
-        });
-        render();
-        mostrarAviso(`${reenvio ? 'Proposta reenviada' : 'Proposta enviada'} para ${email} (simulação do front).`, true);
+        btnEnviar.disabled = true;
+        btnSalvar.disabled = true;
+        rotulo.textContent = 'Enviando...';
+        mMsg.hidden = true;
+
+        try {
+            const { dados } = await post('enviar_proposta_orcamento.php', { id: o.id, proposta: p });
+
+            if (dados.sucesso) {
+                o.proposta = p;
+                o.status = 'enviado';
+                o.enviada_em = dados.enviada_em;
+                const email = o.email;
+
+                fecharModal();
+                filtro = 'enviado';
+                tabs.forEach((t) => {
+                    const ativa = t.dataset.filtro === 'enviado';
+                    t.classList.toggle('active', ativa);
+                    t.setAttribute('aria-selected', String(ativa));
+                });
+                render();
+                mostrarAviso(`${reenvio ? 'Proposta reenviada' : 'Proposta enviada'} para ${email}.`, true);
+            } else {
+                if (dados.mensagem && dados.mensagem.startsWith('A proposta foi salva')) o.proposta = p;
+                msgModal(dados.mensagem || 'Não foi possível enviar a proposta.');
+            }
+        } catch (e) {
+            if (e.message !== 'sessao') msgModal('Erro de conexão com o servidor. Tente novamente.');
+        }
+
+        btnEnviar.disabled = false;
+        btnSalvar.disabled = false;
+        rotulo.textContent = textoOriginal;
     });
 
     btnReabrir.addEventListener('click', async () => {

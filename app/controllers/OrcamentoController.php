@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../models/Orcamento.php';
+require_once __DIR__ . '/../models/RateLimit.php';
+require_once __DIR__ . '/../services/EmailService.php';
 
 class OrcamentoController
 {
@@ -178,6 +180,99 @@ class OrcamentoController
         http_response_code($status);
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode($dados, JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+
+    public function enviarProposta(): void
+    {
+        $dados = $this->lerCorpo();
+        $id    = $this->validarId($dados);
+        $o     = $this->model->buscarPorId($id);
+
+        if ($o === null) {
+            $this->json(404, ['sucesso' => false, 'mensagem' => 'Orçamento não encontrado.']);
+        }
+        if (!in_array($o['status'], ['novo', 'editando', 'enviado'], true)) {
+            $this->json(409, ['sucesso' => false, 'mensagem' => 'Reabra o orçamento antes de enviar.']);
+        }
+
+        $p = $this->lerProposta($dados['proposta'] ?? []);
+
+        // Validação rígida (o rascunho aceita campos vazios, o envio não)
+        $erro = '';
+        if ($p['titulo'] === '')                         $erro = 'Informe o título da proposta.';
+        elseif ($p['escopo'] === '')                     $erro = 'Descreva o escopo.';
+        elseif ($p['prazo'] === '')                      $erro = 'Informe o prazo de entrega.';
+        elseif ($p['valor_min'] === null || $p['valor_max'] === null || $p['valor_min'] <= 0) $erro = 'Informe a faixa de valor estimado.';
+        elseif ($p['valor_max'] < $p['valor_min'])       $erro = 'O valor máximo deve ser maior ou igual ao mínimo.';
+        elseif ($p['pagamento'] === '')                  $erro = 'Informe as condições de pagamento.';
+        elseif ($p['validade'] === '')                   $erro = 'Informe uma validade válida.';
+        elseif ($p['validade'] < date('Y-m-d'))          $erro = 'A validade não pode estar no passado.';
+
+        if ($erro !== '') {
+            $this->json(422, ['sucesso' => false, 'mensagem' => $erro]);
+        }
+
+        // Limite por admin: 30 envios por hora
+        $usuarioId = (int) $_SESSION['usuario_id'];
+        $rl        = new RateLimit();
+        $chave     = RateLimit::chave('uid:' . $usuarioId);
+
+        if ($rl->excedeu('proposta', $chave, 30, 60)) {
+            $this->json(429, ['sucesso' => false, 'mensagem' => 'Limite de envios por hora atingido. Tente mais tarde.']);
+        }
+        $rl->registrar('proposta', $chave);
+
+        // Salva a proposta antes de enviar: se o e-mail falhar, o texto não se perde
+        $this->model->salvarProposta($id, $p, $usuarioId);
+
+        $token = bin2hex(random_bytes(32));
+        $config = require __DIR__ . '/../../config/mail.php';
+        $link   = $config['base_url'] . '/app/views/orcamento/proposta.html?token=' . $token;
+
+        $enviado = (new EmailService())->enviarProposta(
+            $o['email'], $o['nome'], $p['titulo'], $p['valor_min'], $p['valor_max'], $p['prazo'], $p['validade'], $link
+        );
+
+        if (!$enviado) {
+            $this->json(502, ['sucesso' => false, 'mensagem' => 'A proposta foi salva, mas o e-mail não saiu. Tente enviar de novo.']);
+        }
+
+        // Só agora o token passa a valer (e o anterior, em caso de reenvio, deixa de valer)
+        $this->model->marcarEnviado($id, hash('sha256', $token), $usuarioId);
+
+        $this->json(200, [
+            'sucesso'    => true,
+            'mensagem'   => 'Proposta enviada.',
+            'enviada_em' => date('Y-m-d\TH:i:s'),
+        ]);
+    }
+
+    public function baixarAnexo(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            $this->json(405, ['sucesso' => false, 'mensagem' => 'Método não permitido.']);
+        }
+
+        $id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
+        if (!$id || $id < 1) {
+            $this->json(422, ['sucesso' => false, 'mensagem' => 'Dados inválidos.']);
+        }
+
+        $a = $this->model->buscarAnexo($id);
+        $caminho = $a ? __DIR__ . '/../../storage/orcamentos/' . $a['nome_arquivo'] : '';
+
+        if (!$a || !is_file($caminho)) {
+            $this->json(404, ['sucesso' => false, 'mensagem' => 'Anexo não encontrado.']);
+        }
+
+        $ascii = preg_replace('/[^A-Za-z0-9._-]/', '_', $a['nome_original']);
+
+        header('Content-Type: ' . $a['mime']);
+        header('Content-Disposition: attachment; filename="' . $ascii . '"; filename*=UTF-8\'\'' . rawurlencode($a['nome_original']));
+        header('Content-Length: ' . filesize($caminho));
+        header('X-Content-Type-Options: nosniff');
+        readfile($caminho);
         exit;
     }
 }

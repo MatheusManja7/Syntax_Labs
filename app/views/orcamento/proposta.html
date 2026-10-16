@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../public/style/root.css">
+    <link rel="stylesheet" href="../../../public/style/style_orcamento/style_proposta.css">
+
+    <title>Sua proposta — Syntax Labs</title>
+</head>
+<body>
+    <header class="prop_topo">
+        <img src="../../../public/assets/logo_name_sf.png" alt="Syntax Labs">
+    </header>
+
+    <main class="prop_main">
+
+        <!-- Carregando -->
+        <section class="prop_card prop_centro" id="st_carregando">
+            <p>Carregando proposta...</p>
+        </section>
+
+        <!-- Link inválido / expirado -->
+        <section class="prop_card prop_centro" id="st_erro" hidden>
+            <h2 id="erro_titulo">Link inválido</h2>
+            <p id="erro_texto"></p>
+        </section>
+
+        <!-- Proposta -->
+        <section class="prop_card" id="st_proposta" hidden>
+            <p class="prop_rotulo">// proposta comercial</p>
+            <h1 id="p_titulo"></h1>
+            <p class="prop_para" id="p_para"></p>
+
+            <div class="prop_resumo">
+                <div><span>Valor estimado</span><strong id="p_valor"></strong></div>
+                <div><span>Prazo de entrega</span><strong id="p_prazo"></strong></div>
+                <div><span>Válida até</span><strong id="p_validade"></strong></div>
+            </div>
+
+            <p class="prop_estimativa">
+                O valor acima é uma <strong>estimativa (margem de preço)</strong>. Ele pode mudar após a reunião,
+                caso você peça ou retire funcionalidades.
+            </p>
+
+            <h3>Escopo</h3>
+            <p class="prop_texto" id="p_escopo"></p>
+
+            <h3>Condições de pagamento</h3>
+            <p class="prop_texto" id="p_pagamento"></p>
+
+            <div id="p_obs_bloco" hidden>
+                <h3>Observações</h3>
+                <p class="prop_texto" id="p_obs"></p>
+            </div>
+
+            <!-- Decisão -->
+            <div class="prop_acoes" id="p_acoes">
+                <button type="button" class="prop_btn prop_btn_rejeitar" id="btn_rejeitar">Rejeitar</button>
+                <button type="button" class="prop_btn prop_btn_aceitar" id="btn_aceitar">Aceitar proposta</button>
+            </div>
+
+            <div class="prop_confirma" id="p_confirma" hidden>
+                <p id="p_confirma_texto"></p>
+                <div class="prop_acoes">
+                    <button type="button" class="prop_btn" id="btn_voltar">Voltar</button>
+                    <button type="button" class="prop_btn prop_btn_aceitar" id="btn_confirmar">Confirmar</button>
+                </div>
+            </div>
+
+            <p class="prop_msg" id="p_msg" role="alert" hidden></p>
+        </section>
+
+        <!-- Resultado -->
+        <section class="prop_card prop_centro" id="st_resultado" hidden>
+            <div class="prop_icone" id="r_icone" aria-hidden="true"></div>
+            <h2 id="r_titulo"></h2>
+            <p id="r_texto"></p>
+        </section>
+    </main>
+
+    <footer class="prop_rodape">
+        <p>&copy; 2026 Syntax Labs</p>
+    </footer>
+
+    <script src="../../../public/js/script_proposta.js"></script>
+</body>
+</html>
