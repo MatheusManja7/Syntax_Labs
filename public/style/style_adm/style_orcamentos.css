@@ -1,0 +1,685 @@
+.section_orc {
+    position: relative;
+    overflow-x: clip;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 6% 60px;
+    background-color: var(--preto);
+}
+
+.section_orc .bg_effect {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(560px circle at 80% 45%, rgba(137, 242, 0, .05), transparent 65%),
+        radial-gradient(420px circle at 14% 20%, rgba(137, 242, 0, .05), transparent 60%);
+}
+
+.section_orc .bg_effect::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(245, 245, 245, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 245, 245, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 15%, transparent 78%);
+}
+
+.box_info_orc {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 0;
+}
+
+/* ---------- Cabeçalho ---------- */
+.orc_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.orc_header_text h3 {
+    margin: 0 0 2px;
+}
+
+.orc_header_text p {
+    opacity: 0.65;
+}
+
+.orc_search {
+    position: relative;
+    width: min(100%, 340px);
+}
+
+.orc_search i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cinza-text);
+    pointer-events: none;
+}
+
+.orc_search_field {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px 0 40px;
+    background-color: var(--cinza);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--branco);
+    font-family: var(--font-corpo);
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+}
+
+.orc_search_field:focus {
+    outline: none;
+    border-color: var(--color-logo);
+}
+
+.orc_search_field::placeholder {
+    color: var(--cinza-text);
+}
+
+/* ---------- Abas ---------- */
+.orc_tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.orc_tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    color: var(--branco);
+    font-family: var(--font-corpo);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.orc_tab:hover {
+    border-color: var(--color-logo);
+    color: var(--color-logo);
+}
+
+.orc_tab.active {
+    background: var(--color-logo);
+    border-color: var(--color-logo);
+    color: var(--cinza-text-button);
+    font-weight: 700;
+}
+
+.orc_tab_count {
+    min-width: 22px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.orc_tab.active .orc_tab_count {
+    background: rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- Grade de cards (3 por linha) ---------- */
+.orc_grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.orc_card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 22px;
+    text-align: left;
+    background-color: var(--cinza);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: var(--branco);
+    font-family: var(--font-corpo);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.orc_card:hover,
+l .orc_card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(137, 242, 0, 0.45);
+    outline: none;
+}
+
+/* Faixa lateral na cor do status */
+.orc_card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 16px;
+    bottom: 16px;
+    width: 4px;
+    border-radius: 0 4px 4px 0;
+    background: var(--orc-cor, var(--color-logo));
+}
+
+.orc_card[data-status="novo"] {
+    --orc-cor: var(--color-logo);
+    border-color: rgba(137, 242, 0, 0.35);
+}
+
+.orc_card[data-status="editando"] {
+    --orc-cor: #ffb020;
+}
+
+.orc_card[data-status="enviado"] {
+    --orc-cor: #4da3ff;
+}
+
+.orc_card[data-status="aceito"] {
+    --orc-cor: #3ddc84;
+}
+
+.orc_card[data-status="rejeitado"] {
+    --orc-cor: #ff6b6b;
+}
+
+.orc_card_topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.orc_avatar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(137, 242, 0, 0.1);
+    border: 1px solid rgba(137, 242, 0, 0.3);
+    color: var(--color-logo);
+    font-family: var(--font-titulo);
+    font-weight: 600;
+}
+
+.orc_avatar_grande {
+    width: 52px;
+    height: 52px;
+    font-size: 1.1rem;
+}
+
+.orc_card_quem {
+    flex: 1;
+    min-width: 0;
+}
+
+.orc_nome,
+.orc_empresa {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.orc_nome {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.orc_empresa {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.orc_status {
+    flex-shrink: 0;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #0d1a00;
+    background: var(--orc-cor, var(--color-logo));
+}
+
+.orc_status[data-status="novo"] {
+    --orc-cor: var(--color-logo);
+}
+
+.orc_status[data-status="editando"] {
+    --orc-cor: #ffb020;
+}
+
+.orc_status[data-status="enviado"] {
+    --orc-cor: #4da3ff;
+}
+
+.orc_status[data-status="aceito"] {
+    --orc-cor: #3ddc84;
+}
+
+.orc_status[data-status="rejeitado"] {
+    --orc-cor: #ff6b6b;
+    color: #fff;
+}
+
+.orc_chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.orc_chip {
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.75rem;
+    opacity: 0.85;
+    overflow-wrap: anywhere;
+}
+
+.orc_previa {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+.orc_valor {
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--color-logo);
+}
+
+.orc_data {
+    margin-top: auto;
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+/* ---------- Avisos / vazio ---------- */
+.orc_aviso {
+    text-align: center;
+    margin: 0 0 16px;
+    color: #ff6b6b;
+}
+
+.orc_aviso.sucesso {
+    color: var(--color-logo);
+}
+
+.orc_empty {
+    text-align: center;
+    padding: 60px 0;
+    opacity: 0.6;
+}
+
+.orc_empty i {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--branco);
+}
+
+.orc_grid[hidden],
+.orc_empty[hidden],
+.orc_aviso[hidden] {
+    display: none;
+}
+
+/* ---------- Modal ---------- */
+.orc_overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.orc_overlay[hidden] {
+    display: none;
+}
+
+.orc_modal_box {
+    position: relative;
+    width: 760px;
+    max-width: 100%;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 32px;
+    background-color: var(--cinza);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 3px solid var(--color-logo);
+    border-radius: 14px;
+}
+
+.orc_modal_x {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: var(--branco);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.orc_modal_x:hover {
+    color: var(--color-logo);
+    border-color: var(--color-logo);
+}
+
+.orc_modal_topo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 44px 24px 0;
+}
+
+.orc_modal_quem {
+    flex: 1;
+    min-width: 0;
+}
+
+.orc_modal_quem h3 {
+    overflow-wrap: anywhere;
+}
+
+.orc_m_empresa {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.orc_m_data {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.orc_bloco_titulo {
+    margin: 0 0 12px;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-logo);
+    letter-spacing: 0.5px;
+}
+
+/* Detalhes do pedido */
+.orc_dl {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 10px 16px;
+    padding: 18px;
+    margin-bottom: 28px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: var(--branco);
+}
+
+.orc_dl dt {
+    opacity: 0.55;
+}
+
+.orc_dl dd {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.orc_dl a {
+    color: var(--color-logo);
+    text-decoration: none;
+}
+
+.orc_dl a:hover {
+    text-decoration: underline;
+}
+
+/* Proposta */
+.orc_nota_estimativa {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    background: rgba(255, 176, 32, 0.08);
+    border-left: 3px solid #ffb020;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.orc_nota_estimativa i {
+    color: #ffb020;
+    margin-top: 3px;
+}
+
+.orc_fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    min-width: 0;
+    border: none;
+}
+
+.orc_campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.orc_full {
+    grid-column: 1 / -1;
+}
+
+.orc_campo label {
+    font-family: var(--font-code);
+    font-size: 0.78rem;
+    color: var(--branco);
+    opacity: 0.8;
+}
+
+.orc_opt {
+    opacity: 0.6;
+    font-size: 0.7rem;
+}
+
+.orc_campo input,
+.orc_campo textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: var(--branco);
+    font-family: var(--font-corpo);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    transition: border-color 0.2s ease;
+}
+
+.orc_campo textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.orc_campo input[type="date"] {
+    color-scheme: dark;
+}
+
+.orc_campo input:focus,
+.orc_campo textarea:focus {
+    outline: none;
+    border-color: var(--color-logo);
+}
+
+.orc_campo input::placeholder,
+.orc_campo textarea::placeholder {
+    color: var(--cinza-text);
+}
+
+.orc_fieldset:disabled .orc_campo input,
+.orc_fieldset:disabled .orc_campo textarea {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.orc_modal_msg {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: #ff6b6b;
+}
+
+.orc_modal_msg.sucesso {
+    color: var(--color-logo);
+}
+
+.orc_modal_msg[hidden] {
+    display: none;
+}
+
+.orc_botoes {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.orc_btn_esq {
+    margin-right: auto;
+}
+
+.orc_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 22px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: var(--branco);
+    font-family: var(--font-corpo);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.orc_btn:hover {
+    border-color: var(--color-logo);
+    color: var(--color-logo);
+}
+
+.orc_btn_ok {
+    background: var(--color-logo);
+    border-color: var(--color-logo);
+    color: var(--cinza-text-button);
+}
+
+.orc_btn_ok:hover {
+    color: var(--cinza-text-button);
+    opacity: 0.88;
+}
+
+.orc_btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.orc_btn[hidden] {
+    display: none;
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 1100px) {
+    .orc_grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .section_orc {
+        padding: 90px 16px 40px;
+    }
+
+    .orc_grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .orc_search {
+        width: 100%;
+    }
+
+    .orc_modal_box {
+        padding: 24px 18px;
+    }
+
+    .orc_dl {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2px;
+    }
+
+    .orc_dl dd {
+        margin-bottom: 10px;
+    }
+
+    .orc_fieldset {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .orc_botoes .orc_btn {
+        flex: 1;
+    }
+
+    .orc_btn_esq {
+        margin-right: 0;
+    }
+}

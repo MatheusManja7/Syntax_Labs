@@ -1,3 +1,6 @@
 /vendor/
 /config/mail.php
 /link_teste.txt
+/storage/
+/.VSCodeCounter/
+/config/database.local.php

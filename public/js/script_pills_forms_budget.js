@@ -116,8 +116,36 @@
     }
 
     /* ---------- Envio ---------- */
-    form.addEventListener("submit", (event) => {
+    const API_ENVIAR = "../../../public/api/enviar_orcamento.php";
+    const btnEnviar = form.querySelector(".btn_orcamento_submit");
+    const msgEl = document.getElementById("orcamento_msg");
+    const textoBtn = btnEnviar.textContent.trim();
+
+    const MAX_ARQUIVOS = 5;
+    const MAX_BYTES = 5 * 1024 * 1024;
+    const EXT_OK = ["pdf", "doc", "docx", "ppt", "pptx", "png", "jpg", "jpeg"];
+
+    function mostrarMsg(texto, sucesso = false) {
+        msgEl.textContent = texto;
+        msgEl.classList.toggle("sucesso", sucesso);
+        msgEl.hidden = false;
+        msgEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function validarAnexos() {
+        const arquivos = [...document.getElementById("anexos").files];
+        if (arquivos.length > MAX_ARQUIVOS) return `Anexe no máximo ${MAX_ARQUIVOS} arquivos.`;
+        for (const f of arquivos) {
+            const ext = f.name.split(".").pop().toLowerCase();
+            if (!EXT_OK.includes(ext)) return `O arquivo "${f.name}" não é de um tipo permitido.`;
+            if (f.size > MAX_BYTES) return `O arquivo "${f.name}" passa de 5 MB.`;
+        }
+        return "";
+    }
+
+    form.addEventListener("submit", async (event) => {
         event.preventDefault();
+        msgEl.hidden = true;
 
         const pillsValid = validatePillGroups();
         const nativeValid = form.checkValidity();
@@ -129,10 +157,28 @@
             return;
         }
 
-        // TODO: enviar ao backend (fetch com FormData, pois há anexos)
-        console.log("Formulário de orçamento:", Object.fromEntries(new FormData(form)));
-        alert("Recebemos sua solicitação! Vamos responder em até 48 horas.");
-        resetForm();
+        const erroAnexos = validarAnexos();
+        if (erroAnexos) return mostrarMsg(erroAnexos);
+
+        btnEnviar.disabled = true;
+        btnEnviar.textContent = "Enviando...";
+
+        try {
+            const resposta = await fetch(API_ENVIAR, { method: "POST", body: new FormData(form) });
+            const dados = await resposta.json();
+
+            if (dados.sucesso) {
+                resetForm();
+                mostrarMsg(dados.mensagem, true);
+            } else {
+                mostrarMsg(dados.mensagem || "Não foi possível enviar. Tente novamente.");
+            }
+        } catch {
+            mostrarMsg("Erro de conexão com o servidor. Tente novamente.");
+        }
+
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = textoBtn;
     });
 
     /* ---------- Inicialização ---------- */

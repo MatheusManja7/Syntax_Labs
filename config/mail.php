@@ -9,4 +9,5 @@ return [
     'from_email' => 'matheusmanja7@gmail.com',
     'from_name'  => 'Syntax Labs',
     'base_url'   => 'http://localhost/Projetos/Syntax_Labs',
+    'aviso_para' => 'matheusmanja7@gmail.com',
 ];

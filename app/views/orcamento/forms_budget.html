@@ -41,7 +41,7 @@
         </nav>
 
         <div class="navbar_actions" id="navbar_actions">
-            <a href="#login" class="profile_icon" id="profile_icon" aria-label="Perfil / Login">
+            <a href="../auth/login.html" class="profile_icon" id="profile_icon" aria-label="Perfil / Login">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="8" r="4"></circle>
                     <path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"></path>
@@ -272,6 +272,13 @@
                             <div class="file_list" id="anexos_list"></div>
                         </div>
                     </div>
+
+                    <div class="hp_field" aria-hidden="true">
+                        <label for="o_site">Não preencha este campo</label>
+                        <input type="text" id="o_site" name="site" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <p class="form_feedback" id="orcamento_msg" role="alert" hidden></p>
 
                     <button class="btn_content btn_orcamento_submit" type="submit">Solicitar orçamento</button>
 
