@@ -1,15 +1,23 @@
 <?php
 require_once __DIR__ . '/../../helpers/auth_guard.php';
 require_once __DIR__ . '/../../models/Mensagem.php';
+require_once __DIR__ . '/../../models/Orcamento.php';
+
+$novasMensagens = 0;
+$novosOrcamentos = 0;
 
 try {
     $novasMensagens = (new Mensagem())->contarNaoLidas();
 } catch (Throwable $e) {
     error_log('Erro ao contar mensagens: ' . $e->getMessage());
-    $novasMensagens = 0;
+}
+
+try {
+    $novosOrcamentos = (new Orcamento())->contarNovos();
+} catch (Throwable $e) {
+    error_log('Erro ao contar orçamentos: ' . $e->getMessage());
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -103,7 +111,16 @@ try {
                 <a href="orcamentos.php" class="cards">
                     <span class="card_deco" aria-hidden="true"><i class="bi bi-file-earmark-text"></i></span>
                     <div class="card_top">
-                        <span class="card_icon"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></span>
+                        <span class="card_icon">
+                            <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+                            <?php if ($novosOrcamentos > 0): ?>
+                                <span class="card_badge"
+                                    aria-label="<?= $novosOrcamentos ?> orçamentos novos"
+                                    title="<?= $novosOrcamentos ?> orçamentos novos">
+                                    <?= $novosOrcamentos > 99 ? '99+' : $novosOrcamentos ?>
+                                </span>
+                            <?php endif; ?>
+                        </span>
                         <div class="card_text">
                             <h3>Orçamentos</h3>
                             <p>Veja os pedidos de orçamento recebidos.</p>

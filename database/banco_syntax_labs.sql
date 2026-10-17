@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS password_resets (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS tentativas (
     id        INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    tipo      VARCHAR(20) NOT NULL,
+    tipo      VARCHAR(40) NOT NULL,
     chave     CHAR(64)    NOT NULL,
     criado_em DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_busca (tipo, chave, criado_em)
@@ -81,4 +81,60 @@ CREATE TABLE IF NOT EXISTS mensagens_respostas (
         REFERENCES mensagens(id) ON DELETE CASCADE,
     CONSTRAINT fk_resp_usuario FOREIGN KEY (usuario_id)
         REFERENCES usuarios(id) ON DELETE SET NULL
+) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- Orçamentos
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS orcamentos (
+    id                 INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    status             ENUM('novo','editando','enviado','aceito','rejeitado') NOT NULL DEFAULT 'novo',
+
+    -- Pedido do cliente
+    nome               VARCHAR(100)  NOT NULL,
+    empresa            VARCHAR(100)  NOT NULL,
+    email              VARCHAR(150)  NOT NULL,
+    telefone           VARCHAR(20)   NOT NULL,
+    tipos              VARCHAR(500)  NOT NULL,
+    objetivos          VARCHAR(500)  NOT NULL,
+    descricao          TEXT          NOT NULL,
+    possui             VARCHAR(100)  NULL,
+    referencias        VARCHAR(1000) NULL,
+    faixa              VARCHAR(50)   NULL,
+    inicio             VARCHAR(50)   NULL,
+    criado_em          DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    -- Proposta (preenchida pelo admin)
+    prop_titulo        VARCHAR(150)  NULL,
+    prop_escopo        TEXT          NULL,
+    prop_prazo         VARCHAR(100)  NULL,
+    prop_valor_min     DECIMAL(10,2) NULL,
+    prop_valor_max     DECIMAL(10,2) NULL,
+    prop_pagamento     TEXT          NULL,
+    prop_validade      DATE          NULL,
+    prop_obs           TEXT          NULL,
+
+    -- Envio e resposta do cliente
+    token_hash         CHAR(64)      NULL,
+    enviada_em         DATETIME      NULL,
+    respondida_em      DATETIME      NULL,
+    atualizado_por     INT UNSIGNED  NULL,
+
+    INDEX idx_status_criado (status, criado_em),
+    INDEX idx_token (token_hash),
+    CONSTRAINT fk_orc_usuario FOREIGN KEY (atualizado_por)
+        REFERENCES usuarios(id) ON DELETE SET NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS orcamentos_anexos (
+    id             INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    orcamento_id   INT UNSIGNED  NOT NULL,
+    nome_original  VARCHAR(255)  NOT NULL,
+    nome_arquivo   CHAR(40)      NOT NULL,
+    mime           VARCHAR(100)  NOT NULL,
+    tamanho        INT UNSIGNED  NOT NULL,
+    criado_em      DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_orc (orcamento_id),
+    CONSTRAINT fk_anexo_orc FOREIGN KEY (orcamento_id)
+        REFERENCES orcamentos(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
